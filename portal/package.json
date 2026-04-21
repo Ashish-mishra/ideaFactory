@@ -1,0 +1,33 @@
+{
+  "name": "ideafactory-portal",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "validate": "node scripts/validate-ideas.mjs",
+    "build": "npm run validate && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "clsx": "2.1.1",
+    "framer-motion": "^12.38.0",
+    "gray-matter": "4.0.3",
+    "next": "^15.5.15",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "remark": "15.0.1",
+    "remark-html": "16.0.1",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.1",
+    "@types/react": "19.0.1",
+    "@types/react-dom": "19.0.1",
+    "autoprefixer": "10.4.20",
+    "postcss": "8.4.49",
+    "tailwindcss": "3.4.17",
+    "typescript": "5.7.2"
+  }
+}

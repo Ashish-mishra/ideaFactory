@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rtk ls *)",
+      "Bash(rtk git *)",
+      "Bash(npm --version)",
+      "Bash(rtk aws *)",
+      "Bash(chmod +x *)",
+      "Bash(npm install *)",
+      "Bash(npm view *)",
+      "Bash(python3 -c \"import json,sys; vs=json.load\\(sys.stdin\\); stable=[v for v in vs if '-' not in v and v.startswith\\('12.'\\)]; print\\(stable[-5:] if stable else vs[-5:]\\)\")",
+      "Bash(python3 -c \"import json,sys; vs=json.load\\(sys.stdin\\); s=[v for v in vs if v.startswith\\('15.'\\) and '-' not in v]; print\\(s[-8:]\\)\")",
+      "Bash(rtk npm *)",
+      "Bash(rtk tsc *)",
+      "Bash(rtk curl *)",
+      "Bash(aws --profile giftshop --region ap-south-1 cloudformation describe-stacks --stack-name IdfPortalStack --query \"Stacks[0].Outputs[?OutputKey=='CloudFrontDomain'].OutputValue\" --output text)",
+      "Bash(NEXT_PUBLIC_VOTES_API=https://ngd3e14290.execute-api.ap-south-1.amazonaws.com ./scripts/deploy-portal.sh)",
+      "Bash(rtk grep *)",
+      "Bash(rtk wc *)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); [print\\(f\\\\\"  {i['slug']['S']}: up={i['up']['N']} down={i['down']['N']}\\\\\"\\) for i in d.get\\('Items',[]\\)]; print\\(f\\\\\"  count={d.get\\('Count',0\\)}\\\\\"\\)\")",
+      "Bash(aws --profile giftshop --region ap-south-1 dynamodb scan --table-name ideafactory-votes --filter-expression \"begins_with\\(pk, :p\\)\" --expression-attribute-values '{\":p\":{\"S\":\"VOTER#\"}}' --output json)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); items=d.get\\('Items',[]\\); print\\(f'  total_voter_rows={len\\(items\\)}'\\); [print\\(f\\\\\"  {i['pk']['S'][:80]} dir={i.get\\('direction',{}\\).get\\('N','?'\\)}\\\\\"\\) for i in items[:5]]\")",
+      "Bash(curl -s 'https://ngd3e14290.execute-api.ap-south-1.amazonaws.com/counts')",
+      "Bash(rtk read *)"
+    ]
+  }
+}

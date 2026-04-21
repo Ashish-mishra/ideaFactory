@@ -1,0 +1,27 @@
+{
+  "name": "ideafactory-infra",
+  "version": "0.1.0",
+  "private": true,
+  "bin": { "idf": "bin/app.ts" },
+  "scripts": {
+    "build": "tsc",
+    "synth": "cdk synth",
+    "diff": "cdk diff",
+    "deploy:votes": "cdk deploy IdfVotesStack --profile giftshop --require-approval never",
+    "deploy:portal": "cdk deploy IdfPortalStack --profile giftshop --require-approval never",
+    "deploy": "cdk deploy --all --profile giftshop --require-approval never",
+    "bootstrap": "cdk bootstrap aws://$(aws sts get-caller-identity --profile giftshop --query Account --output text)/ap-south-1 --profile giftshop"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.170.0",
+    "constructs": "10.4.2",
+    "source-map-support": "0.5.21"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.1",
+    "aws-cdk": "2.170.0",
+    "esbuild": "0.24.0",
+    "ts-node": "10.9.2",
+    "typescript": "5.7.2"
+  }
+}
