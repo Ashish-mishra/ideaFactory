@@ -21,7 +21,18 @@
       "Bash(aws --profile giftshop --region ap-south-1 dynamodb scan --table-name ideafactory-votes --filter-expression \"begins_with\\(pk, :p\\)\" --expression-attribute-values '{\":p\":{\"S\":\"VOTER#\"}}' --output json)",
       "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); items=d.get\\('Items',[]\\); print\\(f'  total_voter_rows={len\\(items\\)}'\\); [print\\(f\\\\\"  {i['pk']['S'][:80]} dir={i.get\\('direction',{}\\).get\\('N','?'\\)}\\\\\"\\) for i in items[:5]]\")",
       "Bash(curl -s 'https://ngd3e14290.execute-api.ap-south-1.amazonaws.com/counts')",
-      "Bash(rtk read *)"
+      "Bash(rtk read *)",
+      "Bash(rtk npx *)",
+      "Bash(./node_modules/.bin/cdk deploy *)",
+      "Bash(./node_modules/.bin/cdk bootstrap *)",
+      "Bash(dig +short CNAME \"_52e23f7e69f06ef1387060f96819ce30.uniqueideas.in\" @8.8.8.8)",
+      "Bash(dig +short CNAME \"_52e23f7e69f06ef1387060f96819ce30.uniqueideas.in\" @1.1.1.1)",
+      "Bash(nslookup -type=CNAME \"_52e23f7e69f06ef1387060f96819ce30.uniqueideas.in\" 8.8.8.8)",
+      "Bash(nslookup -type=CNAME \"_52e23f7e69f06ef1387060f96819ce30.uniqueideas.in\")",
+      "Bash(nslookup -type=NS uniqueideas.in)",
+      "Bash(nslookup uniqueideas.in)",
+      "Bash(aws --profile giftshop route53 list-hosted-zones-by-name --dns-name uniqueideas.in. --query \"HostedZones[0].Id\" --output text)",
+      "Bash(aws --profile giftshop s3 ls s3://ideafactory-portal-158422796278-ap-south-1/startups/)"
     ]
   }
 }

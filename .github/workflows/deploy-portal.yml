@@ -56,22 +56,39 @@ jobs:
           echo "dist=$DIST_ID" >> "$GITHUB_OUTPUT"
           echo "votes=$VOTES" >> "$GITHUB_OUTPUT"
 
-      - name: Install + build
+      - name: Install
+        working-directory: portal
+        run: npm ci
+
+      - name: Build + sync — root
         working-directory: portal
         env:
           NEXT_PUBLIC_VOTES_API: ${{ steps.outputs.outputs.votes }}
         run: |
-          npm ci
+          rm -rf out/ .next/
+          unset BASE_PATH
           npm run build
-
-      - name: Sync to S3
-        working-directory: portal
-        run: |
           aws s3 sync out/ "s3://${{ steps.outputs.outputs.bucket }}/" \
             --delete \
             --cache-control "public, max-age=300, s-maxage=86400" \
-            --exclude "_next/static/*"
+            --exclude "_next/static/*" \
+            --exclude "startups/*"
           aws s3 sync out/_next/static/ "s3://${{ steps.outputs.outputs.bucket }}/_next/static/" \
+            --cache-control "public, max-age=31536000, immutable"
+
+      - name: Build + sync — /startups
+        working-directory: portal
+        env:
+          NEXT_PUBLIC_VOTES_API: ${{ steps.outputs.outputs.votes }}
+          BASE_PATH: /startups
+        run: |
+          rm -rf out/ .next/
+          npm run build
+          aws s3 sync out/ "s3://${{ steps.outputs.outputs.bucket }}/startups/" \
+            --delete \
+            --cache-control "public, max-age=300, s-maxage=86400" \
+            --exclude "_next/static/*"
+          aws s3 sync out/_next/static/ "s3://${{ steps.outputs.outputs.bucket }}/startups/_next/static/" \
             --cache-control "public, max-age=31536000, immutable"
 
       - name: CloudFront invalidation

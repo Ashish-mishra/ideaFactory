@@ -54,19 +54,42 @@ echo "  votes api:  ${NEXT_PUBLIC_VOTES_API:-<unset — voting disabled>}"
 
 cd "$ROOT/portal"
 
-echo "→ Building Next.js (static export)"
 npm install --no-audit --no-fund --silent
+
+# --- Build 1: root (no basePath) ---
+echo "→ Build 1/2: root (no basePath)"
+rm -rf out/ .next/
+unset BASE_PATH
 npm run build
 
-echo "→ Syncing out/ to s3://$BUCKET"
+echo "→ Sync build 1 to s3://$BUCKET/ (root)"
 aws s3 sync out/ "s3://$BUCKET/" \
+  --delete \
+  --cache-control "public, max-age=300, s-maxage=86400" \
+  --exclude "_next/static/*" \
+  --exclude "startups/*" \
+  --profile "$AWS_PROFILE" \
+  --region "$REGION"
+
+aws s3 sync out/_next/static/ "s3://$BUCKET/_next/static/" \
+  --cache-control "public, max-age=31536000, immutable" \
+  --profile "$AWS_PROFILE" \
+  --region "$REGION"
+
+# --- Build 2: /startups (basePath=/startups) ---
+echo "→ Build 2/2: /startups (basePath=/startups)"
+rm -rf out/ .next/
+BASE_PATH=/startups npm run build
+
+echo "→ Sync build 2 to s3://$BUCKET/startups/"
+aws s3 sync out/ "s3://$BUCKET/startups/" \
   --delete \
   --cache-control "public, max-age=300, s-maxage=86400" \
   --exclude "_next/static/*" \
   --profile "$AWS_PROFILE" \
   --region "$REGION"
 
-aws s3 sync out/_next/static/ "s3://$BUCKET/_next/static/" \
+aws s3 sync out/_next/static/ "s3://$BUCKET/startups/_next/static/" \
   --cache-control "public, max-age=31536000, immutable" \
   --profile "$AWS_PROFILE" \
   --region "$REGION"
