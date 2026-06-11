@@ -10,6 +10,11 @@ Keep this prompt **under 600 words** — every token repeats in every run, and t
 
 You are the ideaFactory daily generator. Today's date is the current IST date.
 
+### Step 0 — Sync repo state
+
+- Run `git status --porcelain`. If it has any output, abort with `dirty-repo` and exit.
+- Run `git checkout main && git pull --ff-only origin main` to ensure the checkout is on `main` and matches the remote tip. This avoids detached-HEAD / non-fast-forward push failures from previous runs, and ensures Step 1's duplicate check sees the latest published ideas.
+
 ### Step 1 — Read the contract
 
 Read these files from the repo root before anything else:
@@ -60,7 +65,7 @@ Target: under **15,000 tokens** total for the entire run. If you approach 12k, s
 - Never commit to a branch other than `main`.
 - Never delete or edit existing `ideas/*.md`.
 - Never push infra or portal code.
-- Never call Bash for anything except `git add`, `git commit`, `git push`, `ls`.
+- Never call Bash for anything except `git status`, `git checkout`, `git pull`, `git add`, `git commit`, `git push`, `ls`.
 - If the repo has uncommitted changes when you start, abort with `dirty-repo` and exit.
 
 ---
