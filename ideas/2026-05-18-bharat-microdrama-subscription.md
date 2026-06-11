@@ -3,7 +3,7 @@ title: "UPI-Powered Microdrama Subscription for Regional Indian Creators"
 slug: bharat-microdrama-subscription
 date: 2026-05-18
 category: mediatech
-pitch: "A creator-first platform where Indian regional-language short-drama makers publish episodic series and earn via UPI subscriptions — beating FreeReels at its own game"
+pitch: "A creator platform where Indian regional-language short-drama makers publish episodic series and earn via UPI subscriptions — beating FreeReels at its own game"
 score:
   market: 16
   capital: 11

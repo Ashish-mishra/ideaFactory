@@ -58,11 +58,12 @@ for (const file of files) {
   if (!Array.isArray(fm.sources) || fm.sources.length === 0)
     errs.push("sources missing");
   else {
+    const ideaDate = new Date(fm.date).getTime();
     const recent = fm.sources.some((s) => {
       const t = new Date(s.observed_on).getTime();
-      return !isNaN(t) && Date.now() - t <= ninetyDaysMs;
+      return !isNaN(t) && !isNaN(ideaDate) && Math.abs(ideaDate - t) <= ninetyDaysMs;
     });
-    if (!recent) errs.push("no source observed in last 90 days");
+    if (!recent) errs.push("no source observed within 90 days of idea date");
   }
   if (fm.slug && !file.includes(fm.slug))
     errs.push(`filename ${file} doesn't match slug ${fm.slug}`);
