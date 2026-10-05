@@ -12,3 +12,11 @@ coverage/
 .turbo/
 .cache/
 *.tsbuildinfo
+
+# credentials & tokens
+.gsc/
+portal/.gsc/
+
+# generated reports & local memory
+portal/memory/
+_trash/
