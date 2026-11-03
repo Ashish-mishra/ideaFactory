@@ -1,10 +1,12 @@
 /**
  * Sitemap generator for uniqueideas.in
  * Run at build time via `npm run sitemap`.
+ * Occasion pages are derived automatically from occasionPages.ts — add slugs there, not here.
  */
 
 import { writeFileSync, mkdirSync } from 'fs';
 import { join } from 'path';
+import { occasionPages } from '../lib/occasionPages';
 
 const BASE_URL = 'https://uniqueideas.in';
 const TODAY = new Date().toISOString().split('T')[0];
@@ -16,14 +18,22 @@ interface SitemapEntry {
   priority: string;
 }
 
+// High-priority slugs get weekly cadence + 0.9; rest get monthly + 0.8
+const highPrioritySlugs = new Set([
+  'unique-gifts-for-birthday',
+  'unique-gifts-for-kids',
+  'personalized-gifts',
+  'unique-diwali-gifts',
+]);
+
 const staticPages: SitemapEntry[] = [
-  { url: '/',                         lastmod: TODAY, changefreq: 'weekly',  priority: '1.0' },
-  { url: '/unique-gifts-for-birthday/', lastmod: TODAY, changefreq: 'weekly',  priority: '0.9' },
-  { url: '/unique-gifts-for-kids/',    lastmod: TODAY, changefreq: 'weekly',  priority: '0.9' },
-  { url: '/personalized-gifts/',       lastmod: TODAY, changefreq: 'weekly',  priority: '0.9' },
-  { url: '/unique-gifts-for-him/',     lastmod: TODAY, changefreq: 'monthly', priority: '0.8' },
-  { url: '/unique-gifts-for-her/',     lastmod: TODAY, changefreq: 'monthly', priority: '0.8' },
-  { url: '/unique-anniversary-gifts/', lastmod: TODAY, changefreq: 'monthly', priority: '0.8' },
+  { url: '/', lastmod: TODAY, changefreq: 'weekly', priority: '1.0' },
+  ...occasionPages.map((p) => ({
+    url: `/${p.slug}/`,
+    lastmod: TODAY,
+    changefreq: highPrioritySlugs.has(p.slug) ? 'weekly' : 'monthly',
+    priority: highPrioritySlugs.has(p.slug) ? '0.9' : '0.8',
+  })),
 ];
 
 function buildSitemap(entries: SitemapEntry[]): string {

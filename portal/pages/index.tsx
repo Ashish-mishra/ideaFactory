@@ -11,6 +11,7 @@ const TITLE = 'Unique Gifting Ideas — Handpicked & Meaningful | UniqueIdeas.in
 const DESCRIPTION =
   'Discover unique gifting ideas for every occasion — personalized fridge magnets, screen-free story boxes for kids, and gifts people actually remember. Curated from the best Indian gift brands. Starting ₹899.';
 const CANONICAL = 'https://uniqueideas.in/';
+const OG_IMAGE = 'https://uniqueideas.in/images/musical-fridge-magnet.png';
 
 const schema = [
   {
@@ -66,9 +67,13 @@ export default function HomePage() {
         <meta property="og:title" content={TITLE} />
         <meta property="og:description" content={DESCRIPTION} />
         <meta property="og:site_name" content="UniqueIdeas.in" />
+        <meta property="og:image" content={OG_IMAGE} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={TITLE} />
         <meta name="twitter:description" content={DESCRIPTION} />
+        <meta name="twitter:image" content={OG_IMAGE} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}

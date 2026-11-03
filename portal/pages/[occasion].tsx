@@ -8,8 +8,23 @@ interface Props {
   page: OccasionPage;
 }
 
+const OG_IMAGE = 'https://uniqueideas.in/images/musical-fridge-magnet.png';
+
 export default function OccasionRoute({ page }: Props) {
   const canonical = `https://uniqueideas.in/${page.slug}/`;
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: page.faq.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.a,
+      },
+    })),
+  };
 
   const schema = {
     '@context': 'https://schema.org',
@@ -49,9 +64,20 @@ export default function OccasionRoute({ page }: Props) {
         <meta property="og:url" content={canonical} />
         <meta property="og:title" content={page.title} />
         <meta property="og:description" content={page.description} />
+        <meta property="og:image" content={OG_IMAGE} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={page.title} />
+        <meta name="twitter:description" content={page.description} />
+        <meta name="twitter:image" content={OG_IMAGE} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       </Head>
 
