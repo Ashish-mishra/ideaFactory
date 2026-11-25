@@ -2,7 +2,7 @@
  * Gift concepts we are evaluating to make and sell.
  * These are NOT on sale yet. Each idea passed two filters:
  *  - makeable in-house (audio/RFID electronics, acrylic and laser work, printing)
- *  - either not sold as a close equivalent (checked Nov 2026) or sold, but we have a clear angle to do better
+ *  - interesting and fun to make, and either new, or already sold in India where we can make it for less
  * Visitors can vote "I'd buy this" to tell us what to build first.
  */
 export interface Idea {
@@ -153,6 +153,46 @@ export const ideas: Idea[] = [
     howItWorks: "We load your channels, such as photos, clips and a custom message, before shipping. It plugs into any USB charger and needs no app or Wi-Fi to watch.",
     whyDifferent: "Hobby-built mini TVs exist as DIY kits and small-seller items. Ours would arrive finished, with channels made from your own photos and messages, in gift packaging.",
     occasions: ["unique-gifts-for-him", "unique-gifts-for-birthday", "unique-gifts-for-kids", "personalized-gifts", "unique-gifts-for-her"],
+  },
+  {
+    slug: "pixel-art-desk-clock",
+    name: "The Pixel Art Desk Clock",
+    tagline: "A glowing pixel display that shows the time, and your own pixel art.",
+    description: "A small desk clock built around a grid of coloured LEDs. It shows the time and date, scrolls a message and plays simple pixel animations. We can load your own pixel art, such as a pet, a logo or a name.",
+    forWho: "Gadget fans, gamers, students and anyone setting up a desk or a shelf.",
+    howItWorks: "We build and program it, load your pixel art and ship it USB-powered with a short set-up card.",
+    whyDifferent: "Branded pixel clocks are sold in India at premium prices. We would make a simpler version for less and add personal artwork as the extra.",
+    occasions: ["unique-gifts-for-him", "unique-gifts-for-her", "unique-gifts-for-birthday", "unique-gifts-for-kids", "personalized-gifts"],
+  },
+  {
+    slug: "mini-desk-weather-station",
+    name: "The Mini Desk Weather Station",
+    tagline: "Temperature, humidity and forecast on a little screen.",
+    description: "A compact desk station with a small display. It shows the room temperature and humidity from a built-in sensor, plus the local forecast, in a clean retro layout. A gift that is useful every morning.",
+    forWho: "Parents, teachers, home-office workers and anyone who likes a tidy desk.",
+    howItWorks: "We build it, set it up for the buyer's city and ship it USB-powered. It needs Wi-Fi once for the forecast.",
+    whyDifferent: "Weather stations are sold in India at a wide range of prices, with many looking cheap. We would offer a good-looking enclosure and a clear display at a fair price.",
+    occasions: ["unique-gifts-for-him", "unique-gifts-for-parents", "unique-gifts-for-teacher", "unique-gifts-for-birthday", "personalized-gifts"],
+  },
+  {
+    slug: "pomodoro-focus-cube",
+    name: "The Pomodoro Focus Cube",
+    tagline: "Flip it to start a focus session, and let the light show the time.",
+    description: "A small cube with a ring of LEDs. Flip it onto a side to start a 25-minute focus timer, and the light slowly counts down. Another side starts a short break. No phone, no app, no distractions.",
+    forWho: "Students, exam aspirants, developers and anyone who works from a desk.",
+    howItWorks: "We build and program it and ship it with a USB cable. The timer lengths can be set before shipping.",
+    whyDifferent: "Focus timers are sold in India, often at high prices. We would make a similar cube for less, with a name or message engraved on it as an option.",
+    occasions: ["unique-gifts-for-kids", "unique-gifts-for-birthday", "unique-gifts-for-him", "unique-gifts-for-her", "unique-gifts-for-teacher", "personalized-gifts"],
+  },
+  {
+    slug: "mood-status-light",
+    name: "The Mood & Status Light",
+    tagline: "A desk light that shows how you feel, or whether you're busy.",
+    description: "A small desk light that glows in the colour you choose. Use it as a mood lamp in the evening, or as a status light that shows when you are in a meeting. A tap changes the colour.",
+    forWho: "Remote workers, students, gamers and anyone who wants a softer desk.",
+    howItWorks: "We build the light, set up a small set of colour modes and ship it USB-powered.",
+    whyDifferent: "Smart lamps are sold in India at higher prices. We would make a simpler, good-looking one with fewer features and a lower price.",
+    occasions: ["unique-gifts-for-him", "unique-gifts-for-her", "unique-gifts-for-birthday", "unique-gifts-for-girlfriend", "personalized-gifts"],
   },
 ];
 

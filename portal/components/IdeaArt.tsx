@@ -179,6 +179,58 @@ const art: Record<string, React.ReactNode> = {
       <rect x="510" y="370" width="30" height="16" rx="6" fill={INK} />
     </g>
   ),
+  'pixel-art-desk-clock': (
+    <g>
+      <rect x="190" y="130" width="420" height="220" rx="18" fill={INK} />
+      <rect x="214" y="154" width="372" height="172" rx="8" fill="#0e0c08" />
+      {Array.from({ length: 8 }).map((_, r) =>
+        Array.from({ length: 20 }).map((_, c) => (
+          <circle key={`${r}-${c}`} cx={230 + c * 17.6} cy={170 + r * 18} r="5" fill="#1d1a12" />
+        ))
+      )}
+      {[[3,3],[3,4],[4,3],[4,4],[5,3],[5,4],[3,6],[4,6],[5,6],[3,7],[5,7],[3,9],[3,10],[4,9],[4,10],[5,9],[5,10],[3,12],[4,12],[5,12],[3,13],[5,13]].map(([r, c], i) => (
+        <circle key={i} cx={230 + (c + 2) * 17.6} cy={170 + r * 18} r="6.5" fill={i % 3 === 0 ? ORANGE : GOLD} />
+      ))}
+      <rect x="360" y="352" width="80" height="12" rx="6" fill="#2c281f" />
+    </g>
+  ),
+  'mini-desk-weather-station': (
+    <g>
+      <rect x="240" y="100" width="320" height="260" rx="22" fill={WOOD} />
+      <rect x="262" y="122" width="276" height="150" rx="10" fill="#26323a" />
+      <circle cx="320" cy="170" r="24" fill={GOLD} />
+      <path d="M300 214 h60 a18 18 0 0 0 0 -36 a26 26 0 0 0 -50 8 a14 14 0 0 0 -10 28z" fill="#fff" opacity=".9" />
+      <text x="470" y="190" textAnchor="middle" fontSize="50" fontWeight="800" fill="#fff">26°</text>
+      <text x="470" y="238" textAnchor="middle" fontSize="22" fill="#9fb3bd">58% RH</text>
+      <rect x="290" y="300" width="220" height="12" rx="6" fill={INK} opacity=".35" />
+      <rect x="290" y="324" width="140" height="10" rx="5" fill={INK} opacity=".25" />
+    </g>
+  ),
+  'pomodoro-focus-cube': (
+    <g>
+      <path d="M300 200 L400 150 L500 200 L400 250 Z" fill="#fff" stroke={INK} strokeWidth="3" />
+      <path d="M300 200 L400 250 V360 L300 310 Z" fill="#e8e2d6" stroke={INK} strokeWidth="3" />
+      <path d="M500 200 L400 250 V360 L500 310 Z" fill="#cfc8b8" stroke={INK} strokeWidth="3" />
+      <circle cx="400" cy="200" r="34" fill="none" stroke="#e8e2d6" strokeWidth="9" />
+      <path d="M400 166 A34 34 0 1 1 366 200" fill="none" stroke={ORANGE} strokeWidth="9" strokeLinecap="round" />
+      <text x="350" y="300" fontSize="40" fontWeight="800" fill={INK} transform="rotate(26 350 300)">25</text>
+    </g>
+  ),
+  'mood-status-light': (
+    <g>
+      <defs>
+        <radialGradient id="mood" cx="50%" cy="50%" r="55%">
+          <stop offset="0%" stopColor="#ffffff" />
+          <stop offset="45%" stopColor="#c987e0" />
+          <stop offset="100%" stopColor="#c987e000" />
+        </radialGradient>
+      </defs>
+      <circle cx="400" cy="210" r="190" fill="url(#mood)" opacity=".55" />
+      <rect x="340" y="150" width="120" height="150" rx="40" fill="#fff" stroke={INK} strokeWidth="3" />
+      <rect x="360" y="170" width="80" height="110" rx="30" fill="#e6c7f0" />
+      <rect x="320" y="300" width="160" height="30" rx="12" fill={INK} />
+    </g>
+  ),
 };
 
 export default function IdeaArt({ slug, name }: { slug: string; name: string }) {
