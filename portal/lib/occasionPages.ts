@@ -524,7 +524,7 @@ export const occasionPages: OccasionPage[] = [
       { heading: "Teachers' Day and end-of-year ideas", body: ["From students: a letter listing what you learnt, a hand-drawn card or a flower. From parents: a class-wide group gift, a gift card for a bookstore or a hamper of stationery. For retiring teachers: a photo album from past students or a framed collage of messages."] },
     ],
     ideas: [
-      { title: "A handwritten thank-you from the student", why: "The most appreciated gift, according to most teachers." },
+      { title: "A handwritten thank-you from the student", why: "Often the gift teachers remember longest." },
       { title: "A class gift with messages from every student", why: "Pool contributions and add a page of notes." },
       { title: "A plant for the classroom or desk", why: "Low cost and long-lived." },
       { title: "A good-quality notebook or planner", why: "Practical for lesson planning." },
