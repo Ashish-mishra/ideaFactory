@@ -194,6 +194,16 @@ export const ideas: Idea[] = [
     whyDifferent: "Smart lamps are sold in India at higher prices. We would make a simpler, good-looking one with fewer features and a lower price.",
     occasions: ["unique-gifts-for-him", "unique-gifts-for-her", "unique-gifts-for-birthday", "unique-gifts-for-girlfriend", "personalized-gifts"],
   },
+  {
+    slug: "led-pixel-sand-clock",
+    name: "The LED Pixel Sand Clock",
+    tagline: "A digital hourglass where glowing pixels fall like sand.",
+    description: "A small square of LEDs that behaves like an hourglass. Glowing \"grains\" pile up and fall as you tilt it, and the sand runs out over a set time such as 1, 5 or 25 minutes. Flip it to start again. It works as a desk timer and as a conversation piece.",
+    forWho: "Gadget fans, students, gamers, and anyone who likes a calming desk object.",
+    howItWorks: "A motion sensor lets the pixels respond to tilt. We build and program it, set the timer lengths and ship it USB-powered or battery-powered.",
+    whyDifferent: "LED sand clocks are sold in India, mostly as imported items at ₹1,500 and up. We would make it locally for less, with colour options and an engraved name or message.",
+    occasions: ["unique-gifts-for-him", "unique-gifts-for-her", "unique-gifts-for-birthday", "unique-gifts-for-kids", "unique-gifts-for-teacher", "personalized-gifts"],
+  },
 ];
 
 export function ideasForOccasion(slug: string): Idea[] {

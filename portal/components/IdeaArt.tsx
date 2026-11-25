@@ -231,6 +231,28 @@ const art: Record<string, React.ReactNode> = {
       <rect x="320" y="300" width="160" height="30" rx="12" fill={INK} />
     </g>
   ),
+  'led-pixel-sand-clock': (
+    <g>
+      <rect x="270" y="80" width="260" height="300" rx="22" fill={INK} />
+      <rect x="292" y="102" width="216" height="256" rx="8" fill="#0e0c08" />
+      {Array.from({ length: 14 }).map((_, r) =>
+        Array.from({ length: 12 }).map((_, c) => {
+          const lit = r >= 9 + Math.abs(c - 5.5) * 0.35 || (r < 3 && c >= 4 && c <= 7 && r + Math.abs(c - 5.5) * 0.4 < 3.2);
+          const fall = c === 6 && r >= 4 && r <= 8;
+          return (
+            <circle
+              key={`${r}-${c}`}
+              cx={306 + c * 17.4}
+              cy={116 + r * 17.4}
+              r="5.6"
+              fill={lit || fall ? (r < 6 ? GOLD : ORANGE) : '#1d1a12'}
+              opacity={lit || fall ? 1 : 0.9}
+            />
+          );
+        })
+      )}
+    </g>
+  ),
 };
 
 export default function IdeaArt({ slug, name }: { slug: string; name: string }) {
