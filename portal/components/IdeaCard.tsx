@@ -3,6 +3,8 @@ import type { Idea } from '@/data/ideas';
 import IdeaArt from '@/components/IdeaArt';
 
 const API = 'https://ngd3e14290.execute-api.ap-south-1.amazonaws.com';
+// Set NEXT_PUBLIC_INTEREST_API at build time to the InterestApiUrl stack output to enable the notify-me form.
+const INTEREST_API = process.env.NEXT_PUBLIC_INTEREST_API ?? '';
 
 function fingerprint(): string {
   try {
@@ -22,6 +24,11 @@ export default function IdeaCard({ idea }: { idea: Idea }) {
   const [count, setCount] = useState<number | null>(null);
   const [voted, setVoted] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [showForm, setShowForm] = useState(false);
+  const [phone, setPhone] = useState('');
+  const [consent, setConsent] = useState(false);
+  const [formState, setFormState] = useState<'idle' | 'sending' | 'done' | 'error'>('idle');
+  const [formError, setFormError] = useState('');
 
   useEffect(() => {
     try { setVoted(localStorage.getItem(`ui_voted_${key}`) === '1'); } catch {}
@@ -47,11 +54,33 @@ export default function IdeaCard({ idea }: { idea: Idea }) {
       if (res.ok) {
         const d = await res.json();
         setVoted(direction === 1);
+        if (direction === 1 && INTEREST_API && formState !== 'done') setShowForm(true);
+        if (direction === 0) setShowForm(false);
         try { localStorage.setItem(`ui_voted_${key}`, direction === 1 ? '1' : '0'); } catch {}
         if (typeof d.up === 'number') setCount(d.up);
       }
     } catch {}
     setBusy(false);
+  }
+
+  async function submitInterest(e: React.FormEvent) {
+    e.preventDefault();
+    if (!consent) { setFormError('Please tick the box to agree.'); setFormState('error'); return; }
+    setFormState('sending'); setFormError('');
+    try {
+      const res = await fetch(`${INTEREST_API}/interest`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slug: key, name: idea.name, phone, consent: true }),
+      });
+      if (res.ok) { setFormState('done'); return; }
+      const d = await res.json().catch(() => ({}));
+      setFormError(d.error ?? 'Something went wrong. Please try again.');
+      setFormState('error');
+    } catch {
+      setFormError('Could not send. Please check your connection and try again.');
+      setFormState('error');
+    }
   }
 
   return (
@@ -88,6 +117,41 @@ export default function IdeaCard({ idea }: { idea: Idea }) {
           <span className="text-xs text-[#a09880]">{count} {count === 1 ? 'person wants' : 'people want'} this</span>
         )}
       </div>
+      {showForm && (
+        <div className="mt-5 rounded-xl bg-[#f2efe8] p-4 text-sm">
+          {formState === 'done' ? (
+            <p className="text-[#1a1710] font-semibold">Thanks! We'll message you on WhatsApp when this is ready.</p>
+          ) : (
+            <form onSubmit={submitInterest} className="space-y-3">
+              <label className="block font-semibold text-[#1a1710]" htmlFor={`wa-${idea.slug}`}>
+                Want a WhatsApp message when this is ready?
+              </label>
+              <input
+                id={`wa-${idea.slug}`}
+                type="tel"
+                inputMode="numeric"
+                autoComplete="tel"
+                placeholder="10-digit mobile number"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                required
+                className="w-full rounded-lg border border-[#e8e2d6] bg-white px-3 py-2"
+              />
+              <label className="flex items-start gap-2 text-xs text-[#5a5648]">
+                <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} className="mt-0.5" />
+                <span>I agree to be contacted on WhatsApp about this product. We use your number only for that, and you can reply STOP any time.</span>
+              </label>
+              {formState === 'error' && <p className="text-xs text-[#c44d1c]">{formError}</p>}
+              <div className="flex items-center gap-3">
+                <button type="submit" disabled={formState === 'sending'} className="px-4 py-2 rounded-full bg-[#1a1710] text-white font-bold">
+                  {formState === 'sending' ? 'Sending…' : 'Notify me'}
+                </button>
+                <button type="button" onClick={() => setShowForm(false)} className="text-xs text-[#a09880] underline">No thanks</button>
+              </div>
+            </form>
+          )}
+        </div>
+      )}
     </article>
   );
 }

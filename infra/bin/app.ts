@@ -3,6 +3,7 @@ import "source-map-support/register";
 import * as cdk from "aws-cdk-lib";
 import { PortalStack } from "../lib/portal-stack";
 import { VotesStack } from "../lib/votes-stack";
+import { InterestStack } from "../lib/interest-stack";
 import { GitHubOidcStack } from "../lib/github-oidc-stack";
 
 const app = new cdk.App();
@@ -26,6 +27,11 @@ new PortalStack(app, "IdfPortalStack", {
 new VotesStack(app, "IdfVotesStack", {
   env,
   description: "ideaFactory — DynamoDB + Lambda + API Gateway for votes",
+});
+
+new InterestStack(app, "IdfInterestStack", {
+  env,
+  description: "ideaFactory — notify-me WhatsApp signups + owner alert",
 });
 
 new GitHubOidcStack(app, "IdfGitHubOidcStack", {
