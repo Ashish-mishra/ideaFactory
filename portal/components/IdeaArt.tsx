@@ -206,31 +206,6 @@ const art: Record<string, React.ReactNode> = {
       <rect x="290" y="324" width="140" height="10" rx="5" fill={INK} opacity=".25" />
     </g>
   ),
-  'pomodoro-focus-cube': (
-    <g>
-      <path d="M300 200 L400 150 L500 200 L400 250 Z" fill="#fff" stroke={INK} strokeWidth="3" />
-      <path d="M300 200 L400 250 V360 L300 310 Z" fill="#e8e2d6" stroke={INK} strokeWidth="3" />
-      <path d="M500 200 L400 250 V360 L500 310 Z" fill="#cfc8b8" stroke={INK} strokeWidth="3" />
-      <circle cx="400" cy="200" r="34" fill="none" stroke="#e8e2d6" strokeWidth="9" />
-      <path d="M400 166 A34 34 0 1 1 366 200" fill="none" stroke={ORANGE} strokeWidth="9" strokeLinecap="round" />
-      <text x="350" y="300" fontSize="40" fontWeight="800" fill={INK} transform="rotate(26 350 300)">25</text>
-    </g>
-  ),
-  'mood-status-light': (
-    <g>
-      <defs>
-        <radialGradient id="mood" cx="50%" cy="50%" r="55%">
-          <stop offset="0%" stopColor="#ffffff" />
-          <stop offset="45%" stopColor="#c987e0" />
-          <stop offset="100%" stopColor="#c987e000" />
-        </radialGradient>
-      </defs>
-      <circle cx="400" cy="210" r="190" fill="url(#mood)" opacity=".55" />
-      <rect x="340" y="150" width="120" height="150" rx="40" fill="#fff" stroke={INK} strokeWidth="3" />
-      <rect x="360" y="170" width="80" height="110" rx="30" fill="#e6c7f0" />
-      <rect x="320" y="300" width="160" height="30" rx="12" fill={INK} />
-    </g>
-  ),
   'led-pixel-sand-clock': (
     <g>
       <rect x="270" y="80" width="260" height="300" rx="22" fill={INK} />
