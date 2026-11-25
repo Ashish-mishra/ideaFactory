@@ -67,7 +67,7 @@ export default function IdeaCard({ idea }: { idea: Idea }) {
       <dl className="text-sm text-[#5a5648] space-y-2 mb-6">
         <div><dt className="inline font-bold text-[#1a1710]">Best for: </dt><dd className="inline">{idea.forWho}</dd></div>
         <div><dt className="inline font-bold text-[#1a1710]">How it works: </dt><dd className="inline">{idea.howItWorks}</dd></div>
-        <div><dt className="inline font-bold text-[#1a1710]">Why it's different: </dt><dd className="inline">{idea.whyDifferent}</dd></div>
+        <div><dt className="inline font-bold text-[#1a1710]">Our angle: </dt><dd className="inline">{idea.whyDifferent}</dd></div>
       </dl>
       <div className="mt-auto flex items-center gap-4">
         <button

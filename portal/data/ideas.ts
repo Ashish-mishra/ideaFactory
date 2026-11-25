@@ -2,7 +2,7 @@
  * Gift concepts we are evaluating to make and sell.
  * These are NOT on sale yet. Each idea passed two filters:
  *  - makeable in-house (audio/RFID electronics, acrylic and laser work, printing)
- *  - not already sold as a close equivalent, as far as we could find (web check, Nov 2026)
+ *  - either not sold as a close equivalent (checked Nov 2026) or sold, but we have a clear angle to do better
  * Visitors can vote "I'd buy this" to tell us what to build first.
  */
 export interface Idea {
@@ -93,6 +93,56 @@ export const ideas: Idea[] = [
     howItWorks: 'The family sends the recording from a scan or phone. We make the plaque and load the audio.',
     whyDifferent: 'Sound-wave plaques exist, mostly sold abroad, and the audio sits behind a QR code. We found none that plays on the plaque itself.',
     occasions: ['unique-gifts-for-newborn-baby'],
+  },
+  {
+    slug: "vinyl-photo-magnet-speaker",
+    name: "The Spinning Vinyl Fridge Speaker",
+    tagline: "A tiny record player for the fridge, with discs that each hold a song.",
+    description: "A fridge-magnet speaker styled as a spinning vinyl record. Each swappable disc carries a song or a voice message, and placing one on the player starts it. Your own photo and message go on the discs.",
+    forWho: "Couples, siblings, parents and friends who want a gift that sits on the fridge and plays.",
+    howItWorks: "We load the songs or voice notes onto discs, print the artwork and ship a rechargeable player with a starter set.",
+    whyDifferent: "Disc-based fridge speakers exist in India. Ours would put your own photos, songs and voice notes on the discs instead of generic ones.",
+    occasions: ["unique-gifts-for-girlfriend", "unique-gifts-for-wife", "unique-anniversary-gifts", "unique-gifts-for-him", "unique-gifts-for-her", "unique-gifts-for-birthday", "personalized-gifts", "unique-gifts-for-parents"],
+  },
+  {
+    slug: "anime-style-light-frame",
+    name: "The Illuminated Art Light Frame",
+    tagline: "A glowing wall or desk frame with adjustable warm-to-cool light.",
+    description: "A wooden frame with an acrylic panel and a built-in LED. The artwork lights up and the brightness and colour can be adjusted. We would draw original anime-style and pop-culture-inspired art, not licensed characters.",
+    forWho: "Teenagers and young adults who love anime, gaming and illustration, and anyone who wants a glowing desk piece.",
+    howItWorks: "We produce the artwork in-house or from a customer's own drawing or photo, print it on the acrylic and ship it USB-powered.",
+    whyDifferent: "Light frames with licensed characters are sold widely. Ours would use original art or the buyer's own picture, which also avoids licensing problems.",
+    occasions: ["unique-gifts-for-birthday", "unique-gifts-for-him", "unique-gifts-for-her", "personalized-gifts", "unique-gifts-for-kids"],
+  },
+  {
+    slug: "dual-name-illusion-plate",
+    name: "The Dual-Name Illusion Plate",
+    tagline: "Two names, one plate. Each shows from a different angle.",
+    description: "A small 3D-printed plate that reads one name from the left and another from the right. For couples it spells both names, or names and a date, and it sits on a desk or shelf.",
+    forWho: "Couples, newlyweds, best friends and siblings, and a low-cost option when budget matters.",
+    howItWorks: "You send the two names or words. We make the plate and ship it in a small gift box.",
+    whyDifferent: "Dual-name plates are sold at low prices in India. We would compete on clean finishes, gift packaging and optional extras such as a message card or a voice-note tag.",
+    occasions: ["unique-gifts-for-girlfriend", "unique-gifts-for-wife", "unique-anniversary-gifts", "unique-wedding-gifts", "unique-gifts-under-500", "personalized-gifts", "unique-gifts-for-birthday"],
+  },
+  {
+    slug: "levitating-display-piece",
+    name: "The Levitating Display Piece",
+    tagline: "A small model that floats above its base.",
+    description: "A desk piece in which a model, such as a car, a spaceship or a custom figure, floats above a base using magnets. It works as a conversation piece and a gift for people who like gadgets.",
+    forWho: "Car and gadget fans, teenagers and anyone who likes unusual desk objects.",
+    howItWorks: "We make the base and model, calibrate the magnets and ship it with simple set-up instructions. A custom name or small engraved plate could be added.",
+    whyDifferent: "Levitating models are sold internationally. A made-in-India version with customisation, such as the buyer's own car or a named base plate, would be the difference.",
+    occasions: ["unique-gifts-for-him", "unique-gifts-for-birthday", "unique-gifts-for-kids", "personalized-gifts"],
+  },
+  {
+    slug: "lithophane-photo-lamp",
+    name: "The Lithophane Photo Lamp",
+    tagline: "A photo that appears when the light comes on.",
+    description: "A photo is turned into a thin 3D-printed panel whose thickness varies, so the picture only becomes clear when the light shines through. Switched off, it looks like a plain white panel in a frame.",
+    forWho: "Couples, new parents, families and anyone with a photo that matters to them.",
+    howItWorks: "You upload a photo. We convert and print the panel, fit it into a frame with a light and ship it ready to switch on.",
+    whyDifferent: "Lithophane frames already sell in India. Ours would focus on finishing quality, good photo conversion and packaging that suits gifting.",
+    occasions: ["personalized-gifts", "unique-anniversary-gifts", "unique-gifts-for-wife", "unique-gifts-for-parents", "unique-gifts-for-grandparents", "unique-gifts-for-newborn-baby", "unique-gifts-for-birthday", "unique-wedding-gifts"],
   },
 ];
 

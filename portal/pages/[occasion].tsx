@@ -231,7 +231,7 @@ export default function OccasionRoute({ page }: Props) {
             <p className="text-xs font-bold uppercase tracking-widest text-[#a09880] mb-2">Coming next</p>
             <h2 className="text-2xl font-extrabold text-[#1a1710] mb-2">Gifts we're building for this</h2>
             <p className="text-xs text-[#a09880] mb-8">
-              These are concepts, not products on sale yet. We couldn't find close equivalents in Indian shops. Vote for the ones you'd buy and we'll build those first.
+              These are concepts, not products on sale yet. Vote for the ones you'd buy and we'll build those first.
             </p>
             <div className="grid gap-8 sm:grid-cols-2">
               {pageIdeas.map((idea) => (

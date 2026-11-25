@@ -89,7 +89,7 @@ export default function HomePage() {
             Unique gifts you can order today, and the ones coming next
           </h1>
           <p className="text-lg text-[#5a5648] max-w-2xl mx-auto leading-relaxed">
-            We make personalised keepsakes you can order now. We're also building gifts we couldn't find in any Indian shop, and you can vote for the ones you'd like us to make next.
+            We make personalised keepsakes you can order now. We're also building new gifts, and you can vote for the ones you'd like us to make next.
           </p>
         </div>
       </section>
