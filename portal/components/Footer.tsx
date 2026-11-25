@@ -10,28 +10,16 @@ export default function Footer() {
             unique<span className="text-[#e8622a]">ideas</span>.in
           </div>
           <p className="text-xs text-[#a09880]">
-            Curating the best gifting ideas on the web.
+            Gift ideas you can't find in the shops yet.
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-x-8 gap-y-2 text-xs text-[#a09880]">
-          <a
-            href="https://createmygift.in"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[#1a1710] transition-colors"
-          >
-            createmygift.in
-          </a>
-          <a
-            href="https://boxtales.in"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[#1a1710] transition-colors"
-          >
-            boxtales.in
-          </a>
-        </div>
+        <p className="text-xs text-[#a09880] max-w-xs">
+          Run by the team behind{' '}
+          <a href="https://createmygift.in" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#1a1710]">createmygift.in</a>
+          {' '}and{' '}
+          <a href="https://boxtales.in" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#1a1710]">boxtales.in</a>.
+        </p>
       </div>
       <nav aria-label="All gift ideas" className="max-w-5xl mx-auto px-6 pb-10 border-t border-[#e8e2d6] pt-6">
         <div className="text-xs font-bold text-[#1a1710] mb-3">Gift ideas by occasion</div>

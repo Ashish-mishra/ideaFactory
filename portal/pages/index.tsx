@@ -1,17 +1,14 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import SplitHero from '@/components/SplitHero';
-import ProductShowcase from '@/components/ProductShowcase';
-import BrandSpotlight from '@/components/BrandSpotlight';
-import { products } from '@/data/products';
+import IdeasShowcase from '@/components/IdeasShowcase';
+import { ideas } from '@/data/ideas';
 import { occasionPages } from '@/lib/occasionPages';
 
-const TITLE = 'Unique Gifting Ideas — Handpicked & Meaningful | UniqueIdeas.in';
+const TITLE = 'Unique Gift Ideas You Can\'t Buy Anywhere Else | UniqueIdeas.in';
 const DESCRIPTION =
-  'Discover unique gifting ideas for every occasion — personalized fridge magnets, screen-free story boxes for kids, and gifts people actually remember. Curated from the best Indian gift brands. Starting ₹899.';
+  'Gift ideas you won\'t find in the shops: voice-bouquet frames, one-tap bhajan boxes, birthday time capsules and more. Browse the concepts and vote for the ones we should build.';
 const CANONICAL = 'https://uniqueideas.in/';
-const OG_IMAGE = 'https://uniqueideas.in/images/musical-fridge-magnet.png';
 
 const schema = [
   {
@@ -29,27 +26,14 @@ const schema = [
   {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Unique Gifting Ideas',
-    description: 'Curated unique gift ideas handpicked from top Indian gift brands.',
+    name: 'Unique Gift Ideas',
+    description: 'Gift concepts being developed. Not yet on sale.',
     url: CANONICAL,
-    itemListElement: products.map((p, i) => ({
+    itemListElement: ideas.map((idea, i) => ({
       '@type': 'ListItem',
       position: i + 1,
-      item: {
-        '@type': 'Product',
-        name: p.title,
-        description: p.tagline,
-        image: p.image.startsWith('http') ? p.image : `https://uniqueideas.in${p.image}`,
-        offers: {
-          '@type': 'Offer',
-          priceCurrency: 'INR',
-          price: p.price.replace('₹', '').replace(',', ''),
-          availability: p.badge === 'Pre-Order'
-            ? 'https://schema.org/PreOrder'
-            : 'https://schema.org/InStock',
-          url: p.url,
-        },
-      },
+      name: idea.name,
+      description: idea.tagline,
     })),
   },
 ];
@@ -67,21 +51,29 @@ export default function HomePage() {
         <meta property="og:title" content={TITLE} />
         <meta property="og:description" content={DESCRIPTION} />
         <meta property="og:site_name" content="UniqueIdeas.in" />
-        <meta property="og:image" content={OG_IMAGE} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={TITLE} />
         <meta name="twitter:description" content={DESCRIPTION} />
-        <meta name="twitter:image" content={OG_IMAGE} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       </Head>
 
-      <SplitHero />
-      <ProductShowcase />
+      <section className="pt-[65px] bg-[#f2efe8] border-b border-[#e8e2d6]">
+        <div className="max-w-5xl mx-auto px-6 py-20 text-center">
+          <p className="text-xs font-bold uppercase tracking-widest text-[#a09880] mb-4">UniqueIdeas.in</p>
+          <h1 className="text-4xl sm:text-6xl font-extrabold text-[#1a1710] leading-tight mb-5">
+            Gift ideas you can't buy anywhere else
+          </h1>
+          <p className="text-lg text-[#5a5648] max-w-2xl mx-auto leading-relaxed">
+            We look for gifts that don't exist in Indian shops yet, then work out how to make them. Browse the concepts, vote for the ones you'd buy, and we'll build the favourites.
+          </p>
+        </div>
+      </section>
+      <IdeasShowcase />
 
       {/* Occasion links — internal linking for SEO + user navigation */}
       <section className="max-w-5xl mx-auto px-6 pb-16">
@@ -102,7 +94,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <BrandSpotlight />
     </>
   );
 }
