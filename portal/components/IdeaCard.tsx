@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import type { Idea } from '@/data/ideas';
+import IdeaArt from '@/components/IdeaArt';
 
 const API = 'https://ngd3e14290.execute-api.ap-south-1.amazonaws.com';
 
@@ -58,6 +59,7 @@ export default function IdeaCard({ idea }: { idea: Idea }) {
       className="rounded-2xl bg-white border border-[#e8e2d6] p-8 flex flex-col"
       style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 6px 24px rgba(0,0,0,0.06)' }}
     >
+      <IdeaArt slug={idea.slug} name={idea.name} />
       <span className="self-start mb-3 px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide bg-[#fff5f0] text-[#7a2e0e]">
         Concept · not on sale yet
       </span>
