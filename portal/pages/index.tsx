@@ -1,13 +1,16 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import ProductShowcase from '@/components/ProductShowcase';
 import IdeasShowcase from '@/components/IdeasShowcase';
+import { products } from '@/data/products';
 import { ideas } from '@/data/ideas';
 import { occasionPages } from '@/lib/occasionPages';
 
-const TITLE = 'Unique Gift Ideas You Can\'t Buy Anywhere Else | UniqueIdeas.in';
+const TITLE = 'Unique Gift Ideas India — Available Now & Coming Next | UniqueIdeas.in';
 const DESCRIPTION =
-  'Gift ideas you won\'t find in the shops: voice-bouquet frames, one-tap bhajan boxes, birthday time capsules and more. Browse the concepts and vote for the ones we should build.';
+  'Unique gift ideas for every occasion: personalised keepsakes you can order today, plus new concepts we are building next. Vote for the ones you want.';
+const OG_IMAGE = 'https://uniqueideas.in/images/musical-fridge-magnet.png';
 const CANONICAL = 'https://uniqueideas.in/';
 
 const schema = [
@@ -26,14 +29,27 @@ const schema = [
   {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Unique Gift Ideas',
-    description: 'Gift concepts being developed. Not yet on sale.',
+    name: 'Unique Gifting Ideas',
+    description: 'Curated unique gift ideas handpicked from top Indian gift brands.',
     url: CANONICAL,
-    itemListElement: ideas.map((idea, i) => ({
+    itemListElement: products.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,
-      name: idea.name,
-      description: idea.tagline,
+      item: {
+        '@type': 'Product',
+        name: p.title,
+        description: p.tagline,
+        image: p.image.startsWith('http') ? p.image : `https://uniqueideas.in${p.image}`,
+        offers: {
+          '@type': 'Offer',
+          priceCurrency: 'INR',
+          price: p.price.replace('₹', '').replace(',', ''),
+          availability: p.badge === 'Pre-Order'
+            ? 'https://schema.org/PreOrder'
+            : 'https://schema.org/InStock',
+          url: p.url,
+        },
+      },
     })),
   },
 ];
@@ -51,11 +67,15 @@ export default function HomePage() {
         <meta property="og:title" content={TITLE} />
         <meta property="og:description" content={DESCRIPTION} />
         <meta property="og:site_name" content="UniqueIdeas.in" />
+        <meta property="og:image" content={OG_IMAGE} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta name="twitter:card" content="summary" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={TITLE} />
         <meta name="twitter:description" content={DESCRIPTION} />
+        <meta name="twitter:image" content={OG_IMAGE} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -66,13 +86,14 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto px-6 py-20 text-center">
           <p className="text-xs font-bold uppercase tracking-widest text-[#a09880] mb-4">UniqueIdeas.in</p>
           <h1 className="text-4xl sm:text-6xl font-extrabold text-[#1a1710] leading-tight mb-5">
-            Gift ideas you can't buy anywhere else
+            Unique gifts you can order today, and the ones coming next
           </h1>
           <p className="text-lg text-[#5a5648] max-w-2xl mx-auto leading-relaxed">
-            We look for gifts that don't exist in Indian shops yet, then work out how to make them. Browse the concepts, vote for the ones you'd buy, and we'll build the favourites.
+            We make personalised keepsakes you can order now. We're also building gifts we couldn't find in any Indian shop, and you can vote for the ones you'd like us to make next.
           </p>
         </div>
       </section>
+      <ProductShowcase />
       <IdeasShowcase />
 
       {/* Occasion links — internal linking for SEO + user navigation */}

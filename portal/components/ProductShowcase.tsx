@@ -5,12 +5,12 @@ export default function ProductShowcase() {
   return (
     <section id="ideas" className="max-w-5xl mx-auto px-6 py-20">
       <div className="text-center mb-14">
-        <p className="text-xs font-bold uppercase tracking-widest text-[#a09880] mb-3">Curated picks</p>
+        <p className="text-xs font-bold uppercase tracking-widest text-[#a09880] mb-3">Available now</p>
         <h2 className="text-4xl sm:text-5xl font-extrabold text-[#1a1710] leading-tight">
-          Gifts worth giving
+          Ready to order
         </h2>
         <p className="mt-4 text-[#5a5648] max-w-md mx-auto">
-          Every idea links directly to where you can buy it. No middlemen, no markups.
+          Made by us and shipped across India. Each one links straight to where you can buy it.
         </p>
       </div>
 

@@ -9,7 +9,10 @@ export default function Nav() {
       </Link>
 
       <div className="flex items-center gap-6 text-sm font-medium text-[#5a5648]">
-        <Link href="/#ideas" className="hover:text-[#1a1710] transition-colors">Ideas</Link>
+        <Link href="/#ideas" className="hover:text-[#1a1710] transition-colors">Available</Link>
+        <Link href="/#coming-next" className="hover:text-[#1a1710] transition-colors">Coming next</Link>
+        <a href="https://createmygift.in" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-[#c9960a] transition-colors"><span className="w-2 h-2 rounded-full bg-[#f2b90d] inline-block" />CreateMyGift</a>
+        <a href="https://boxtales.in" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-[#c44d1c] transition-colors"><span className="w-2 h-2 rounded-full bg-[#e8622a] inline-block" />BoxTales</a>
       </div>
     </nav>
   );

@@ -10,7 +10,7 @@ export default function Footer() {
             unique<span className="text-[#e8622a]">ideas</span>.in
           </div>
           <p className="text-xs text-[#a09880]">
-            Gift ideas you can't find in the shops yet.
+            Unique gifts you can order today, and the ones we're building next.
           </p>
         </div>
 

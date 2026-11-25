@@ -1,3 +1,5 @@
+import { Product, products } from '@/data/products';
+
 export interface OccasionPage {
   slug: string;
   /** ISO date (YYYY-MM-DD) of the last meaningful content change. Update when you edit the page; drives sitemap lastmod. */
@@ -6,6 +8,7 @@ export interface OccasionPage {
   h1: string;
   description: string;
   intro: string;
+  products: Product[];
   faq: { q: string; a: string }[];
   /** Original editorial content: sections shown above the product list. */
   guide?: { heading: string; body: string[] }[];
@@ -17,6 +20,8 @@ export interface OccasionPage {
   reads?: { label: string; url: string }[];
 }
 
+const allProducts = products;
+
 export const occasionPages: OccasionPage[] = [
   {
     slug: 'unique-gifts-for-birthday',
@@ -25,6 +30,7 @@ export const occasionPages: OccasionPage[] = [
     h1: 'Unique Birthday Gift Ideas',
     description: "Unique birthday gift ideas in India: concepts for gifts that hold voices and memories, plus a practical guide to choosing well.",
     intro: 'Birthdays deserve something special — not another mug or scarf. Here are curated unique birthday gift ideas that actually surprise people.',
+    products: allProducts,
     guide: [
       {
         heading: 'How to choose a birthday gift that lands',
@@ -67,6 +73,7 @@ export const occasionPages: OccasionPage[] = [
     h1: 'Unique Gifts for Kids',
     description: "Unique gifts for kids in India: screen-free, story-led ideas and a guide to picking by age, plus concepts we are building.",
     intro: 'The best gifts for kids aren\'t toys they forget by Tuesday — they\'re experiences that spark imagination. Here are unique gift ideas your child will actually love.',
+    products: allProducts.filter(p => p.categories.includes('for-kids')),
     guide: [
       {
         heading: 'What makes a gift good for a child',
@@ -108,6 +115,7 @@ export const occasionPages: OccasionPage[] = [
     h1: 'Personalized Gift Ideas',
     description: "Personalised gift ideas in India: what makes a gift feel personal, practical ordering tips and new concepts we are developing.",
     intro: 'Personalized gifts say "I thought about you" in a way nothing else can. Here are ideas that combine customisation with quality.',
+    products: allProducts.filter(p => p.categories.includes('personalized')),
     guide: [
       {
         heading: 'What actually makes a gift feel personal',
@@ -150,6 +158,7 @@ export const occasionPages: OccasionPage[] = [
     h1: 'Unique Anniversary Gift Ideas',
     description: "Unique anniversary gift ideas in India: guides by relationship stage and new concepts like sealed voice letters.",
     intro: 'Anniversary gifts should feel like the relationship — personal, warm, and full of meaning. Skip the flowers. Here are unique anniversary gift ideas that last.',
+    products: allProducts,
     guide: [
       { heading: "How to pick an anniversary gift that means something", body: ["Anniversary gifts work best when they point backwards and forwards: a nod to something you have shared, and a hint of what you want to do next. A framed first-date ticket with a booking for a new place does both.", "Match the year to the gesture if you like traditions (paper for year one, cotton for year two), but do not feel bound by them. What the other person will remember is the thought behind the item, not the material."] },
       { heading: "Anniversary gifts by stage", body: ["Early years: playful and personal, such as a scrapbook of your first year, a photo calendar or a surprise dinner at the place you met. Middle years: shared experiences, such as a weekend away, a couples workshop or a restored old photograph. Long marriages: reflection, such as a letter about what you have learnt from each other or a family tree print."] },
@@ -180,6 +189,7 @@ export const occasionPages: OccasionPage[] = [
     h1: 'Unique Gifts for Him',
     description: "Unique gifts for him in India: how to choose for different personalities, plus concepts for voice-based keepsakes.",
     intro: 'Men are notoriously hard to shop for. These unique gift ideas for him go beyond the usual wallet-and-watch routine.',
+    products: allProducts,
     guide: [
       { heading: "Choosing a gift for him without defaulting to a wallet", body: ["Start with what he does when nobody is asking him to do anything: his hobbies, his weekend routine, what he reads or watches. A gift that supports that habit is almost always better than something generic.", "Many men say they want nothing. In practice that usually means they do not want clutter. Consumables, experiences and tools for an existing interest land better than decorative objects."] },
       { heading: "Gifts for him by personality", body: ["Practical: a quality bag, a good travel organiser or a tool he has been postponing buying. Sentimental: a photo keepsake, a handwritten letter or a framed memory. Adventurous: a trek booking, a camping setup or a class in something new. Homebody: a nice mug and coffee set, a book he mentioned or a board game for evenings."] },
@@ -210,6 +220,7 @@ export const occasionPages: OccasionPage[] = [
     h1: 'Unique Gifts for Her',
     description: "Unique gifts for her in India: thoughtful ideas by relationship and budget, and concepts that carry your voice.",
     intro: 'The best gifts for her are the ones that feel like you really listened. Here are unique gift ideas for women that go beyond flowers and spa vouchers.',
+    products: allProducts,
     guide: [
       { heading: "Choosing a gift for her that feels considered", body: ["Skip the assumption that she wants jewellery or flowers. Think about what she has mentioned in passing: a place she wants to visit, a hobby she has dropped, something she keeps meaning to buy for herself.", "Presentation counts. A simple gift that arrives wrapped well with a handwritten note feels more thoughtful than an expensive one handed over in a bag."] },
       { heading: "Ideas by relationship and budget", body: ["For a close friend: shared experiences such as a spa session, a book and tea set or a framed photo from a trip. For a partner: something personal such as a keepsake with a song or a dated photo. For a colleague: something small and useful like a good planner or a plant. Budget tip: most of the value comes from the specific detail, so a low-cost gift with one precise detail beats an expensive generic one."] },
@@ -239,6 +250,7 @@ export const occasionPages: OccasionPage[] = [
     h1: 'Unique Gifts Under ₹500',
     description: "Unique gifts under ₹500 in India: ideas and tips for making a small gift feel special.",
     intro: 'Budget doesn\'t have to mean boring. These unique gift ideas under ₹500 punch well above their price tag.',
+    products: allProducts.filter(p => p.categories.includes('under-1000')),
     guide: [
       { heading: "How to make a ₹500 gift feel special", body: ["At this budget the detail does the work. Choose one thing that is clearly for them, such as their favourite snack, their favourite colour or a reference to a shared joke, and present it with care.", "Pair a small item with a handwritten note. The note costs nothing and is usually what people keep."] },
       { heading: "Where ₹500 goes furthest", body: ["Good value categories: books and stationery, plants and pots, handmade or locally made items, snack and tea boxes, small personalised cards and prints. Poor value: anything that looks premium but is thin, such as cheap electronics or unbranded gadgets that fail quickly."] },
@@ -268,6 +280,7 @@ export const occasionPages: OccasionPage[] = [
     h1: 'Unique Gifts for Wife',
     description: "Unique gifts for wife in India: ideas that show attention, by occasion, plus voice-letter concepts.",
     intro: 'The best gift for your wife isn\'t the most expensive one — it\'s the most personal. These unique gift ideas for wives are built around meaning, not price.',
+    products: allProducts,
     guide: [
       { heading: "What a wife usually values in a gift", body: ["Many people say they want effort, not expense. A gift that shows you noticed something specific, such as a book she mentioned or a place she wants to see, matters more than cost.", "Also think about time. A gift that gives her an evening off, a morning to herself or a planned outing often beats an object."] },
       { heading: "Gift ideas by occasion", body: ["Birthday: something about her, not the household. Anniversary: something about the two of you, such as a dated photo or a letter. Just-because: small, frequent gestures like her favourite sweet or a note in her bag. Milestone years: a larger shared experience, such as a trip or a restored family photograph."] },
@@ -298,6 +311,7 @@ export const occasionPages: OccasionPage[] = [
     h1: 'Unique Gifts for Girlfriend',
     description: "Unique gifts for girlfriend in India: ideas by relationship stage and concepts for long-distance couples.",
     intro: 'Generic gifts send a generic message. These unique gift ideas for your girlfriend say "I actually paid attention."',
+    products: allProducts.filter(p => p.categories.includes('personalized')),
     guide: [
       { heading: "Choosing a gift for a girlfriend", body: ["Early in a relationship, choose gifts that are thoughtful but not heavy. Something that shows you listened is better than something expensive that creates pressure.", "As the relationship grows, gifts can become more personal: shared memories, inside jokes and plans for things you will do together."] },
       { heading: "Ideas by stage", body: ["First months: a book she mentioned, a playlist with a note, her favourite snack. One year: a dated photo, a small scrapbook or a trip to a place that matters to both of you. Long distance: a package of small items to open on set days, a recorded message or a shared playlist."] },
@@ -327,6 +341,7 @@ export const occasionPages: OccasionPage[] = [
     h1: 'Unique Gifts for Parents',
     description: "Unique gifts for parents in India: ideas that show attention, plus concepts for simple, voice-based keepsakes.",
     intro: 'Parents have everything they need. What they don\'t have is more time. These unique gift ideas for parents capture moments they\'ll treasure.',
+    products: allProducts,
     guide: [
       { heading: "What parents appreciate", body: ["Parents often say they need nothing, but they respond strongly to attention. Gifts that save them effort, bring family together or show they are remembered tend to land best.", "Consider comfort and health too: a good pillow, a massager or a health check-up package are practical ways to show care."] },
       { heading: "Gifts for mothers and fathers", body: ["For mothers: something for her, not the household, such as a spa voucher, a favourite saree box or a photo of her with the grandchildren. For fathers: something for his hobby, a comfortable pair of shoes or a framed family picture. For both: a family photo album, a trip they have wanted or a recorded video of the family wishing them."] },
@@ -358,6 +373,7 @@ export const occasionPages: OccasionPage[] = [
     h1: 'Unique Gifts for Grandparents',
     description: "Unique gifts for grandparents in India: easy-to-use ideas and concepts that preserve their stories.",
     intro: 'The best gifts for grandparents connect them to family. These unique gift ideas for grandparents close the distance, even when they\'re far away.',
+    products: allProducts,
     guide: [
       { heading: "Gifts that work for grandparents", body: ["Prioritise comfort, simplicity and connection. Many grandparents value photographs and time with grandchildren above objects.", "Avoid anything with complicated setup or tiny text. If it involves technology, include a short printed instruction card or offer to set it up in person."] },
       { heading: "Ideas that suit older relatives", body: ["Large-print books, a good reading lamp, a digital photo frame loaded with family pictures, comfortable slippers, a pill organiser or a framed family tree. Experiences matter too: a family lunch, a visit from the grandchildren or a recorded story session where they share memories on video."] },
@@ -384,6 +400,7 @@ export const occasionPages: OccasionPage[] = [
     h1: 'Unique Diwali Gift Ideas 2026',
     description: "Unique Diwali gift ideas in India: ideas beyond sweets, and a planning guide for family, friends and colleagues.",
     intro: 'Diwali deserves more than another dry fruit box. These unique Diwali gift ideas for 2026 will actually be remembered.',
+    products: allProducts,
     guide: [
       { heading: "Moving beyond the mithai box", body: ["Diwali gifting in India is crowded with sweets and dry fruit. To stand out, choose something that reflects the person, such as a handmade diya set, a photo keepsake or a book they will read through the holidays.", "For clients and colleagues, keep it tasteful and not too personal: quality dry fruits, a reusable item or a small plant. For family, add a handwritten note."] },
       { heading: "Planning your Diwali gifts", body: ["Order early. Delivery slots fill up in the weeks before the festival, and personalised items take longer. Set a budget per group (family, friends, colleagues, service staff) before you start so you do not overspend. Keep a list of what you gave last year so you do not repeat yourself. This guide is evergreen: bookmark it for next year if you are reading after the festival."] },
@@ -413,6 +430,7 @@ export const occasionPages: OccasionPage[] = [
     h1: 'Unique Rakhi Gift Ideas',
     description: "Unique Rakhi gift ideas in India: gifts that reference your shared history, and a concept for a rakhi that plays a message.",
     intro: 'Rakhi is about the bond, not the box. These unique Rakhi gift ideas let that bond do the talking.',
+    products: allProducts,
     guide: [
       { heading: "Rakhi gifts that go beyond sweets and a thali", body: ["Rakhi is about the sibling bond, so the best gifts reference shared history: a childhood photograph, an inside joke or a memory from growing up.", "Plan around delivery. If your brother or sister lives in another city or country, order early and track the shipment, and send a message the same day so it arrives with context."] },
       { heading: "Gifts from sisters and gifts from brothers", body: ["From sisters to brothers: a keepsake, a grooming kit or a book he will read. From brothers to sisters: something she would not buy herself, a day out she has been postponing or support for a hobby. For siblings abroad: a package of local sweets plus a video message."] },
@@ -443,6 +461,7 @@ export const occasionPages: OccasionPage[] = [
     h1: 'Unique Wedding Gift Ideas',
     description: "Unique wedding gift ideas in India: gifts couples keep, by budget, plus a concept that holds every guest's blessing.",
     intro: 'The couple will return three toasters. Give them something they\'ll keep. These unique wedding gift ideas are built to last.',
+    products: allProducts,
     guide: [
       { heading: "Giving a wedding gift people keep", body: ["Most couples receive several of the same appliances. Think about what they will use in their first year or what will still mean something in ten.", "Consider your relationship with the family and the style of the wedding. A gift can be quiet and personal, or generous and practical, depending on how close you are."] },
       { heading: "Wedding gifts by budget", body: ["Up to ₹1,000: a framed picture, a handwritten letter in a nice card or a plant for the new home. ₹1,000–₹5,000: a good set of cookware, a photo book from the wedding or a hamper for the couple's first morning. Higher budgets: an experience such as a weekend away, or a contribution to something they are saving for. Cash gifts are normal in India, so a thoughtful card alongside is a good way to personalise it."] },
@@ -472,6 +491,7 @@ export const occasionPages: OccasionPage[] = [
     h1: 'Unique Gifts for Newborn Baby',
     description: "Unique newborn baby gift ideas in India: gifts for the baby and the parents, plus keepsake concepts for the first year.",
     intro: 'Every new baby gets onesies and nappies. Give the family something that will matter when the child is old enough to remember it.',
+    products: allProducts.filter(p => p.categories.includes('for-kids')),
     guide: [
       { heading: "Gifts for a newborn and their parents", body: ["Newborns outgrow most things within weeks, so think about what helps the parents or marks the moment. A hand-knit blanket, a milestone card set or a framed first photograph all hold value.", "Safety first: avoid small parts, loose items in the crib and heavily scented products. Choose soft, washable and breathable fabrics."] },
       { heading: "What new parents actually appreciate", body: ["Practical help is often the best gift: a few cooked meals, a laundry service or a voucher for a house-help day. Items for the baby's first year work well too: size 3–6 month clothing so it fits later, a baby book to record milestones, or a soft toy that suits a newborn."] },
@@ -498,6 +518,7 @@ export const occasionPages: OccasionPage[] = [
     h1: 'Unique Gifts for Teacher',
     description: "Unique teacher gift ideas in India: gifts teachers keep and a concept that gathers every student's voice.",
     intro: 'Teachers get enough pens and mugs. These unique gift ideas for teachers are the ones they\'ll actually talk about.',
+    products: allProducts.filter(p => p.categories.includes('personalized')),
     guide: [
       { heading: "Choosing a gift for a teacher", body: ["Teachers often receive many mugs and pens. A gift that stands out is personal and small: a handwritten thank-you from the student, a plant for the classroom or a book they can use.", "Check school rules, since some institutions limit gift value or accept only group gifts. A note from the student is welcome everywhere."] },
       { heading: "Teachers' Day and end-of-year ideas", body: ["From students: a letter listing what you learnt, a hand-drawn card or a flower. From parents: a class-wide group gift, a gift card for a bookstore or a hamper of stationery. For retiring teachers: a photo album from past students or a framed collage of messages."] },
