@@ -144,6 +144,16 @@ export const ideas: Idea[] = [
     whyDifferent: "Lithophane frames already sell in India. Ours would focus on finishing quality, good photo conversion and packaging that suits gifting.",
     occasions: ["personalized-gifts", "unique-anniversary-gifts", "unique-gifts-for-wife", "unique-gifts-for-parents", "unique-gifts-for-grandparents", "unique-gifts-for-newborn-baby", "unique-gifts-for-birthday", "unique-wedding-gifts"],
   },
+  {
+    slug: "mini-retro-tv",
+    name: "The Mini Retro TV",
+    tagline: "A tiny TV for your desk where every channel is yours.",
+    description: "A miniature retro television with a small screen and a rotary knob. Turn the knob to change channels: a family-photo slideshow, a looping clip, a clock, a message from the giver or a pixel animation. It runs on a small microcontroller board and USB power.",
+    forWho: "Gadget and retro fans, teenagers, parents who like desk objects, and anyone who would enjoy a conversation piece.",
+    howItWorks: "We load your channels, such as photos, clips and a custom message, before shipping. It plugs into any USB charger and needs no app or Wi-Fi to watch.",
+    whyDifferent: "Hobby-built mini TVs exist as DIY kits and small-seller items. Ours would arrive finished, with channels made from your own photos and messages, in gift packaging.",
+    occasions: ["unique-gifts-for-him", "unique-gifts-for-birthday", "unique-gifts-for-kids", "personalized-gifts", "unique-gifts-for-her"],
+  },
 ];
 
 export function ideasForOccasion(slug: string): Idea[] {

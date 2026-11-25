@@ -160,6 +160,25 @@ const art: Record<string, React.ReactNode> = {
       <rect x="418" y="242" width="44" height="54" rx="22" fill="#c7a15f" opacity=".55" />
     </g>
   ),
+  'mini-retro-tv': (
+    <g>
+      <path d="M360 120 L330 70 M440 120 L470 70" stroke={INK} strokeWidth="5" strokeLinecap="round" />
+      <rect x="220" y="120" width="360" height="250" rx="26" fill={WOOD} />
+      <rect x="244" y="144" width="240" height="202" rx="16" fill={INK} />
+      <rect x="258" y="158" width="212" height="174" rx="10" fill="#26323a" />
+      {[ORANGE, GOLD, '#7cc6a4', '#6aa8e8', '#c987e0', '#fff'].map((c, i) => (
+        <rect key={i} x={266 + i * 34} y="166" width="34" height="90" fill={c} opacity=".9" />
+      ))}
+      <rect x="266" y="266" width="196" height="12" rx="6" fill="#fff" opacity=".25" />
+      <rect x="266" y="288" width="120" height="12" rx="6" fill="#fff" opacity=".18" />
+      <circle cx="534" cy="196" r="26" fill={INK} />
+      <path d="M534 196 L534 176" stroke={GOLD} strokeWidth="5" strokeLinecap="round" />
+      <circle cx="534" cy="278" r="18" fill={INK} />
+      <path d="M534 278 L546 270" stroke={GOLD} strokeWidth="4" strokeLinecap="round" />
+      <rect x="260" y="370" width="30" height="16" rx="6" fill={INK} />
+      <rect x="510" y="370" width="30" height="16" rx="6" fill={INK} />
+    </g>
+  ),
 };
 
 export default function IdeaArt({ slug, name }: { slug: string; name: string }) {
