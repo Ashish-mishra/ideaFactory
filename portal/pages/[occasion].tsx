@@ -26,6 +26,19 @@ export default function OccasionRoute({ page }: Props) {
     })),
   };
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://uniqueideas.in/' },
+      { '@type': 'ListItem', position: 2, name: page.h1, item: canonical },
+    ],
+  };
+
+  const relatedPages = (page.related && page.related.length
+    ? page.related.map((s) => occasionPages.find((p) => p.slug === s)).filter(Boolean)
+    : occasionPages.filter((p) => p.slug !== page.slug).slice(0, 5)) as OccasionPage[];
+
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -79,6 +92,10 @@ export default function OccasionRoute({ page }: Props) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
       </Head>
 
       <div className="pt-[65px]">
@@ -95,8 +112,40 @@ export default function OccasionRoute({ page }: Props) {
           </div>
         </div>
 
+        {/* Editorial guide */}
+        {page.guide && (
+          <section className="max-w-3xl mx-auto px-6 pt-16">
+            {page.guide.map((g) => (
+              <div key={g.heading} className="mb-10">
+                <h2 className="text-2xl font-extrabold text-[#1a1710] mb-4">{g.heading}</h2>
+                {g.body.map((para, i) => (
+                  <p key={i} className="text-[#5a5648] leading-relaxed mb-4">{para}</p>
+                ))}
+              </div>
+            ))}
+          </section>
+        )}
+
+        {/* Brand-neutral ideas */}
+        {page.ideas && (
+          <section className="max-w-3xl mx-auto px-6 pb-4">
+            <h2 className="text-2xl font-extrabold text-[#1a1710] mb-6">More ideas worth considering</h2>
+            <ol className="list-decimal pl-5 space-y-3">
+              {page.ideas.map((idea) => (
+                <li key={idea.title} className="text-[#5a5648] leading-relaxed">
+                  <strong className="text-[#1a1710]">{idea.title}.</strong> {idea.why}
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+
         {/* Products */}
         <section className="max-w-5xl mx-auto px-6 py-16">
+          <h2 className="text-2xl font-extrabold text-[#1a1710] mb-2">Our picks</h2>
+          <p className="text-xs text-[#a09880] mb-8">
+            Disclosure: we also run CreateMyGift and BoxTales, so the products below come from our own brands.
+          </p>
           <div className="flex flex-col gap-8">
             {page.products.map((product, i) => {
               const brand = brandConfig[product.brand];
@@ -182,6 +231,30 @@ export default function OccasionRoute({ page }: Props) {
               ))}
             </div>
           </div>
+        </section>
+
+        {/* Further reading + related */}
+        <section className="max-w-3xl mx-auto px-6 py-12">
+          {page.reads && (
+            <div className="mb-8">
+              <h2 className="text-lg font-extrabold text-[#1a1710] mb-3">Further reading</h2>
+              <ul className="list-disc pl-5 space-y-1 text-sm">
+                {page.reads.map((r) => (
+                  <li key={r.url}><a href={r.url} className="text-[#e8622a] hover:underline">{r.label}</a></li>
+                ))}
+              </ul>
+            </div>
+          )}
+          <h2 className="text-lg font-extrabold text-[#1a1710] mb-3">More gift ideas</h2>
+          <ul className="flex flex-wrap gap-2">
+            {relatedPages.map((r) => (
+              <li key={r.slug}>
+                <a href={`/${r.slug}/`} className="inline-block px-4 py-2 rounded-full border border-[#e8e2d6] bg-white text-sm text-[#1a1710] hover:border-[#e8622a]">
+                  {r.h1}
+                </a>
+              </li>
+            ))}
+          </ul>
         </section>
 
         {/* Breadcrumb nav */}

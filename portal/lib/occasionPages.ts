@@ -2,12 +2,22 @@ import { Product, products } from '@/data/products';
 
 export interface OccasionPage {
   slug: string;
+  /** ISO date (YYYY-MM-DD) of the last meaningful content change. Update when you edit the page; drives sitemap lastmod. */
+  updated: string;
   title: string;
   h1: string;
   description: string;
   intro: string;
   products: Product[];
   faq: { q: string; a: string }[];
+  /** Original editorial content: sections shown above the product list. */
+  guide?: { heading: string; body: string[] }[];
+  /** Brand-neutral gift ideas (experiences, handmade, etc.) with a reason each. */
+  ideas?: { title: string; why: string }[];
+  /** Slugs of related occasion pages for internal linking. */
+  related?: string[];
+  /** Further reading on sibling sites (editorial links). */
+  reads?: { label: string; url: string }[];
 }
 
 const allProducts = products;
@@ -15,11 +25,41 @@ const allProducts = products;
 export const occasionPages: OccasionPage[] = [
   {
     slug: 'unique-gifts-for-birthday',
+    updated: '2026-11-25',
     title: 'Unique Birthday Gift Ideas — Gifts They\'ll Never Forget | UniqueIdeas.in',
     h1: 'Unique Birthday Gift Ideas',
     description: 'Looking for a unique birthday gift in India? Discover handpicked birthday gift ideas — personalized, meaningful, and unlike anything from a mall. Starting ₹899.',
     intro: 'Birthdays deserve something special — not another mug or scarf. Here are curated unique birthday gift ideas that actually surprise people.',
     products: allProducts,
+    guide: [
+      {
+        heading: 'How to choose a birthday gift that lands',
+        body: [
+          'Start with the person, not the price tag. Ask what they complained about this year, what they bought for themselves recently, and what they keep postponing. A gift that solves a small annoyance or feeds a quiet interest almost always beats a generic "nice" present.',
+          'Match effort to the relationship. For a close friend or partner, a gift with a visible story (a shared memory, an inside joke, a place you went together) matters more than cost. For a colleague or acquaintance, something useful and easy to enjoy is enough.',
+          'Think in categories before products: something to do, something to keep, something to consume, or something to learn. Picking the category first stops you drifting back to the default mug or gift card.',
+        ],
+      },
+      {
+        heading: 'Birthday gifts by age and budget',
+        body: [
+          'Under ₹500: a handwritten letter with a small treat, a plant with a pot you painted, or a curated playlist printed on a card. Under ₹1,500: a personalised keepsake, a good book plus bookmark set, or a class voucher. Above ₹3,000: an experience such as a workshop, a staycation night or a hobby starter kit.',
+          'For children, favour things that start an activity (art kits, story devices, building sets) over things that sit on a shelf. For teenagers, give choice: a voucher for something they already want beats a guess. For adults, consumables and experiences age better than objects.',
+        ],
+      },
+    ],
+    ideas: [
+      { title: 'A memory-based keepsake', why: 'A photo, a song or a short message turns an ordinary object into something only the two of you understand.' },
+      { title: 'A hands-on workshop', why: 'Pottery, baking, candle-making or a photography walk gives you a shared afternoon and a story afterwards.' },
+      { title: 'A "year of" subscription', why: 'Books, coffee, plants or snacks arriving monthly make the birthday last twelve months.' },
+      { title: 'A handwritten letter or recorded voice note', why: 'It costs nothing and is the thing people keep. Pair it with a small treat.' },
+      { title: 'A surprise day plan', why: 'Plan their favourite food, a walk and a film, then hand it over as a printed itinerary.' },
+      { title: 'A hobby starter kit', why: 'Watercolours, a mini terrarium or a beginner guitar book lowers the barrier to something they have wanted to try.' },
+    ],
+    related: ['unique-gifts-for-kids', 'personalized-gifts', 'unique-gifts-for-him', 'unique-gifts-for-her', 'unique-gifts-under-500'],
+    reads: [
+      { label: 'Birthday gifts online in India: unique ideas (CreateMyGift guide)', url: 'https://createmygift.in/blog/birthday-gifts-online-india-unique-ideas/' },
+    ],
     faq: [
       { q: 'What is a truly unique birthday gift?', a: 'A truly unique birthday gift is personalized, unexpected, and tells a story. Think a musical fridge magnet with a photo and song, or a screen-free story box for kids — gifts that create a memory, not just a moment.' },
       { q: 'What are good unique birthday gifts under ₹1000?', a: 'The Musical Photo Fridge Magnet at ₹899 is our top pick — it combines a photo, a song, and a heartfelt message into one keepsake. It ships across India and arrives ready to gift.' },
@@ -28,11 +68,40 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-gifts-for-kids',
+    updated: '2026-11-25',
     title: 'Unique Gifts for Kids in India — Screen-Free & Educational | UniqueIdeas.in',
     h1: 'Unique Gifts for Kids',
     description: 'Discover unique gifts for kids in India — screen-free, educational, and actually fun. The BoxTales Kahaani Box brings Panchatantra stories to life without any screen. Ages 3–8.',
     intro: 'The best gifts for kids aren\'t toys they forget by Tuesday — they\'re experiences that spark imagination. Here are unique gift ideas your child will actually love.',
     products: allProducts.filter(p => p.categories.includes('for-kids')),
+    guide: [
+      {
+        heading: 'What makes a gift good for a child',
+        body: [
+          'The best kids gifts start an activity rather than fill a shelf. Look for something a child can do alone, with a friend, and with a parent. Open-ended play (building, drawing, pretend, stories) holds attention far longer than a toy with one trick.',
+          'Match the gift to the stage, not just the age on the box. A three-year-old wants big, safe, sensory things. A six-year-old wants rules and small wins. An eight-year-old wants something they can show off or get good at.',
+        ],
+      },
+      {
+        heading: 'Gift ideas by age',
+        body: [
+          'Ages 2–4: chunky puzzles, picture books with sounds, stacking toys and role-play sets. Ages 5–7: story-based devices, craft kits, simple board games and building sets. Ages 8–10: science kits, strategy games, chapter books and anything that teaches a skill like drawing or coding basics.',
+          'Always check small parts, battery safety and age labelling before buying, especially for children under three.',
+        ],
+      },
+    ],
+    ideas: [
+      { title: 'Screen-free audio stories', why: 'Bedtime stories without a screen help children wind down and build listening and vocabulary skills.' },
+      { title: 'A craft or science kit', why: 'Finished projects give a sense of achievement and something to show grandparents.' },
+      { title: 'Board and card games for the whole family', why: 'Games teach turn-taking and give parents an easy way to join in.' },
+      { title: 'A personalised storybook or name puzzle', why: 'Seeing their own name in the story makes reading feel special.' },
+      { title: 'Outdoor play gear', why: 'Skipping ropes, kites and badminton sets get children moving without a lot of effort from adults.' },
+      { title: 'A subscription to a children\'s magazine', why: 'Something arrives in their name every month, and it builds reading habits.' },
+    ],
+    related: ['unique-gifts-for-newborn-baby', 'unique-gifts-for-birthday', 'personalized-gifts', 'unique-gifts-for-teacher'],
+    reads: [
+      { label: 'Children\'s Day gifts in India (CreateMyGift guide)', url: 'https://createmygift.in/blog/childrens-day-gifts-2026-india/' },
+    ],
     faq: [
       { q: 'What are unique educational gifts for kids in India?', a: 'Screen-free audio story devices like the BoxTales Kids Kahaani Box are among the best unique educational gifts for Indian children. They combine Indian folklore (Panchatantra, Amar Chitra Katha) with hands-on play — no screen, no Wi-Fi needed.' },
       { q: 'What is a good unique gift for a 3–8 year old?', a: 'The BoxTales Kahaani Box — a child places a 3D figurine on the cube and a story plays instantly. It builds cultural awareness, language skills, and imagination. Far more memorable than another soft toy.' },
@@ -41,11 +110,41 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'personalized-gifts',
+    updated: '2026-11-25',
     title: 'Personalized Gift Ideas India — Unique & Meaningful | UniqueIdeas.in',
     h1: 'Personalized Gift Ideas',
     description: 'Explore unique personalized gift ideas in India — add a photo, name, or song to create something truly one-of-a-kind. Handcrafted and shipped across India. From ₹899.',
     intro: 'Personalized gifts say "I thought about you" in a way nothing else can. Here are our top picks that combine customization with quality.',
     products: allProducts.filter(p => p.categories.includes('personalized')),
+    guide: [
+      {
+        heading: 'What actually makes a gift feel personal',
+        body: [
+          'Adding a name is the lowest level of personalisation. Gifts feel personal when they carry specific information only you would know: a date, a place, a nickname, a line from a conversation, a song from a particular summer.',
+          'Choose one strong detail and let it carry the gift. A single well-chosen photo or line of text works better than several crowded elements.',
+        ],
+      },
+      {
+        heading: 'Practical tips before you order',
+        body: [
+          'Allow time: personalised items are made to order, so plan at least a week for production and delivery, and longer around festivals. Check the preview carefully for spelling, since most personalised products cannot be returned.',
+          'Use a high-resolution photo, avoid heavy filters and check how the product crops the image. If a gift includes text, keep it short and easy to read at the size it will be displayed.',
+        ],
+      },
+    ],
+    ideas: [
+      { title: 'Photo keepsakes', why: 'Photo frames, magnets and prints suit almost every relationship and fit any budget.' },
+      { title: 'Engraved items', why: 'Pens, wallets or wooden boards with a short engraved line are durable and look premium.' },
+      { title: 'Custom illustrations', why: 'A portrait or a map of a meaningful place is more original than anything off a shelf.' },
+      { title: 'Personalised stationery', why: 'Notebooks and planners with a name or a message are practical and used daily.' },
+      { title: 'A recorded message or song gift', why: 'Sound carries emotion that text cannot, which makes it good for distance and milestones.' },
+      { title: 'Name-based art for kids\' rooms', why: 'It makes the room feel like theirs and often becomes a long-term keepsake.' },
+    ],
+    related: ['unique-gifts-for-birthday', 'unique-anniversary-gifts', 'unique-gifts-for-girlfriend', 'unique-wedding-gifts', 'unique-gifts-under-500'],
+    reads: [
+      { label: 'Personalised photo frame gift ideas (CreateMyGift guide)', url: 'https://createmygift.in/blog/personalized-photo-frame-gift-ideas/' },
+      { label: 'Personalised couple gifts in India (CreateMyGift guide)', url: 'https://createmygift.in/blog/personalized-couple-gifts-india/' },
+    ],
     faq: [
       { q: 'What are the best personalized gifts in India?', a: 'The Musical Photo Fridge Magnet is one of the most unique personalized gifts in India — you add your own photo, a custom message, and a song, and it arrives as a ready-to-give keepsake with a built-in speaker.' },
       { q: 'How long does a personalized gift take to ship?', a: 'Personalized gifts from CreateMyGift typically ship within 2–3 business days and arrive within 5–7 business days across India. Check the product page for the latest estimated delivery timeline.' },
@@ -54,6 +153,7 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-anniversary-gifts',
+    updated: '2026-10-20',
     title: 'Unique Anniversary Gift Ideas India — Gifts That Mean More | UniqueIdeas.in',
     h1: 'Unique Anniversary Gift Ideas',
     description: 'Find truly unique anniversary gift ideas in India — personalized, sentimental, and memorable. A musical keepsake with your photo and song makes anniversaries unforgettable.',
@@ -67,6 +167,7 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-gifts-for-him',
+    updated: '2026-10-20',
     title: 'Unique Gifts for Him — Unusual Gift Ideas for Men India | UniqueIdeas.in',
     h1: 'Unique Gifts for Him',
     description: 'Struggling to find a unique gift for him? Explore unusual gift ideas for men in India — personalized, quirky, and actually useful. From ₹899, shipped pan-India.',
@@ -80,6 +181,7 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-gifts-for-her',
+    updated: '2026-10-20',
     title: 'Unique Gifts for Her — Thoughtful Gift Ideas for Women India | UniqueIdeas.in',
     h1: 'Unique Gifts for Her',
     description: 'Find a truly unique gift for her in India — personalized, heartfelt, and unlike anything from a mall. Musical keepsakes, story boxes, and more. From ₹899.',
@@ -93,6 +195,7 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-gifts-under-500',
+    updated: '2026-10-20',
     title: 'Unique Gifts Under ₹500 India — Thoughtful & Affordable | UniqueIdeas.in',
     h1: 'Unique Gifts Under ₹500',
     description: 'Find unique gifts under ₹500 in India — thoughtful, personalized, and budget-friendly. Handpicked ideas that feel special without breaking the bank.',
@@ -106,6 +209,7 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-gifts-for-wife',
+    updated: '2026-10-20',
     title: 'Unique Gifts for Wife India — Surprise Her with Something Special | UniqueIdeas.in',
     h1: 'Unique Gifts for Wife',
     description: 'Find a truly unique gift for your wife in India — personalized, meaningful, and unlike anything from a mall. Musical keepsakes and sentimental surprises she\'ll love. From ₹899.',
@@ -119,6 +223,7 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-gifts-for-girlfriend',
+    updated: '2026-10-20',
     title: 'Unique Gifts for Girlfriend India — Gifts She\'ll Actually Love | UniqueIdeas.in',
     h1: 'Unique Gifts for Girlfriend',
     description: 'Unique gift ideas for girlfriend in India — personalized, romantic, and genuinely surprising. Musical keepsakes and heartfelt gifts from ₹899, delivered across India.',
@@ -132,6 +237,7 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-gifts-for-parents',
+    updated: '2026-10-20',
     title: 'Unique Gifts for Parents India — Gifts They\'ll Treasure Forever | UniqueIdeas.in',
     h1: 'Unique Gifts for Parents',
     description: 'Find unique gifts for parents in India — sentimental, personal, and truly memorable. From musical family keepsakes to screen-free story boxes for grandchildren. From ₹899.',
@@ -145,6 +251,7 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-gifts-for-grandparents',
+    updated: '2026-10-20',
     title: 'Unique Gifts for Grandparents India — Meaningful & Easy to Use | UniqueIdeas.in',
     h1: 'Unique Gifts for Grandparents',
     description: 'Find unique gifts for grandparents in India — meaningful, easy to use, and built to bridge generations. Screen-free devices and personalized keepsakes from ₹899.',
@@ -158,6 +265,7 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-diwali-gifts',
+    updated: '2026-10-20',
     title: 'Unique Diwali Gift Ideas 2026 India — Beyond Dry Fruits & Sweets | UniqueIdeas.in',
     h1: 'Unique Diwali Gift Ideas 2026',
     description: 'Discover unique Diwali gift ideas for 2026 — beyond mithai boxes and diyas. Personalized musical keepsakes and cultural story boxes that will be remembered long after the festival.',
@@ -171,6 +279,7 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-rakhi-gifts',
+    updated: '2026-10-20',
     title: 'Unique Rakhi Gift Ideas for Brother & Sister India 2026 | UniqueIdeas.in',
     h1: 'Unique Rakhi Gift Ideas',
     description: 'Find unique Rakhi gift ideas in India for 2026 — personalized, meaningful, and far more memorable than a chocolate hamper. For brother, sister, and the kids in your life.',
@@ -184,6 +293,7 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-wedding-gifts',
+    updated: '2026-10-20',
     title: 'Unique Wedding Gift Ideas India — Gifts the Couple Will Keep | UniqueIdeas.in',
     h1: 'Unique Wedding Gift Ideas',
     description: 'Find unique wedding gift ideas in India — sentimental, personal, and unlike another kitchen appliance. Musical keepsakes and story boxes that the couple will treasure for years.',
@@ -197,6 +307,7 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-gifts-for-newborn-baby',
+    updated: '2026-10-20',
     title: 'Unique Newborn Baby Gift Ideas India — Beyond Diapers & Onesies | UniqueIdeas.in',
     h1: 'Unique Gifts for Newborn Baby',
     description: 'Discover unique newborn baby gift ideas in India — beyond diapers and onesies. Screen-free story boxes and family keepsakes that grow with the child. From ₹899.',
@@ -210,6 +321,7 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-gifts-for-teacher',
+    updated: '2026-10-20',
     title: 'Unique Teacher Gift Ideas India — Gifts Teachers Actually Keep | UniqueIdeas.in',
     h1: 'Unique Gifts for Teacher',
     description: 'Find unique teacher gift ideas in India — thoughtful, personalized, and genuinely memorable. Go beyond mugs and pens with gifts teachers will actually keep and use.',

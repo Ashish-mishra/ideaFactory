@@ -20,3 +20,6 @@ portal/.gsc/
 # generated reports & local memory
 portal/memory/
 _trash/
+
+# Google Search Console credentials
+.gsc/

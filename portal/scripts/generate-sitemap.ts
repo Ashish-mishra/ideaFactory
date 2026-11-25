@@ -9,7 +9,8 @@ import { join } from 'path';
 import { occasionPages } from '../lib/occasionPages';
 
 const BASE_URL = 'https://uniqueideas.in';
-const TODAY = new Date().toISOString().split('T')[0];
+// lastmod comes from each page's `updated` field, not the build date.
+const latestUpdate = occasionPages.map((p) => p.updated).sort().pop()!;
 
 interface SitemapEntry {
   url: string;
@@ -27,10 +28,10 @@ const highPrioritySlugs = new Set([
 ]);
 
 const staticPages: SitemapEntry[] = [
-  { url: '/', lastmod: TODAY, changefreq: 'weekly', priority: '1.0' },
+  { url: '/', lastmod: latestUpdate, changefreq: 'weekly', priority: '1.0' },
   ...occasionPages.map((p) => ({
     url: `/${p.slug}/`,
-    lastmod: TODAY,
+    lastmod: p.updated,
     changefreq: highPrioritySlugs.has(p.slug) ? 'weekly' : 'monthly',
     priority: highPrioritySlugs.has(p.slug) ? '0.9' : '0.8',
   })),
