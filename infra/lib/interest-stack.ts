@@ -4,6 +4,8 @@ import * as dynamodb from "aws-cdk-lib/aws-dynamodb";
 import * as lambda from "aws-cdk-lib/aws-lambda";
 import * as nodejs from "aws-cdk-lib/aws-lambda-nodejs";
 import * as iam from "aws-cdk-lib/aws-iam";
+import * as sns from "aws-cdk-lib/aws-sns";
+import * as subs from "aws-cdk-lib/aws-sns-subscriptions";
 import * as apigw from "aws-cdk-lib/aws-apigatewayv2";
 import * as integrations from "aws-cdk-lib/aws-apigatewayv2-integrations";
 import * as path from "node:path";
@@ -23,6 +25,10 @@ export class InterestStack extends cdk.Stack {
       pointInTimeRecovery: true,
     });
 
+    // Email alerts. The address comes from the ALERT_EMAIL env var at deploy time, not from the repo.
+    const topic = new sns.Topic(this, "InterestAlerts", { displayName: "uniqueideas.in interest alerts" });
+    if (process.env.ALERT_EMAIL) topic.addSubscription(new subs.EmailSubscription(process.env.ALERT_EMAIL));
+
     const ssmPrefix = "/gift-shop/prod";
     const fn = new nodejs.NodejsFunction(this, "InterestFn", {
       entry: path.join(__dirname, "..", "lambda", "interest", "index.ts"),
@@ -32,6 +38,7 @@ export class InterestStack extends cdk.Stack {
       architecture: lambda.Architecture.ARM_64,
       environment: {
         INTEREST_TABLE: table.tableName,
+        ALERT_TOPIC_ARN: topic.topicArn,
         WHATSAPP_SSM_PREFIX: ssmPrefix,
         WHATSAPP_TEMPLATE: "new_gift_interest",
         ALLOWED_ORIGINS: "https://uniqueideas.in,http://localhost:3100",
@@ -40,6 +47,7 @@ export class InterestStack extends cdk.Stack {
       bundling: { minify: true, sourceMap: false, externalModules: ["@aws-sdk/*"] },
     });
     table.grantReadWriteData(fn);
+    topic.grantPublish(fn);
     fn.addToRolePolicy(
       new iam.PolicyStatement({
         actions: ["ssm:GetParameter"],

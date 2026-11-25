@@ -2,10 +2,13 @@ import type { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from "aws-lambda
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, PutCommand, QueryCommand, UpdateCommand } from "@aws-sdk/lib-dynamodb";
 import { SSMClient, GetParameterCommand } from "@aws-sdk/client-ssm";
+import { SNSClient, PublishCommand } from "@aws-sdk/client-sns";
 import crypto from "node:crypto";
 
 const ddb = DynamoDBDocumentClient.from(new DynamoDBClient({}));
 const ssm = new SSMClient({});
+const sns = new SNSClient({});
+const ALERT_TOPIC_ARN = process.env.ALERT_TOPIC_ARN ?? "";
 const TABLE = process.env.INTEREST_TABLE!;
 const SSM_PREFIX = process.env.WHATSAPP_SSM_PREFIX ?? "/gift-shop/prod";
 const TEMPLATE = process.env.WHATSAPP_TEMPLATE ?? "new_gift_interest";
@@ -54,6 +57,23 @@ function cleanName(raw: string, slug: string): string {
 
 function hashIp(ip: string): string {
   return crypto.createHash("sha256").update(ip + (process.env.IP_SALT ?? "")).digest("hex").slice(0, 16);
+}
+
+async function emailOwner(ideaName: string, phone: string, total: number): Promise<boolean> {
+  if (DRY_RUN || !ALERT_TOPIC_ARN) return false;
+  try {
+    await sns.send(
+      new PublishCommand({
+        TopicArn: ALERT_TOPIC_ARN,
+        Subject: `New interest: ${ideaName}`.slice(0, 100),
+        Message: `Someone wants to be notified about "${ideaName}".\n\nWhatsApp: +${phone}\nTotal interested so far: ${total}\n\nSent from uniqueideas.in`,
+      })
+    );
+    return true;
+  } catch (e) {
+    console.error("email alert error", (e as Error).message);
+    return false;
+  }
 }
 
 async function notifyOwner(ideaName: string, phone: string, total: number): Promise<boolean> {
@@ -153,7 +173,9 @@ export const handler = async (event: APIGatewayProxyEventV2): Promise<APIGateway
         Select: "COUNT",
       })
     );
-    await notifyOwner(cleanName(body.name ?? "", slug), phone, count.Count ?? 1);
+    const idea = cleanName(body.name ?? "", slug);
+    const n = count.Count ?? 1;
+    await Promise.all([notifyOwner(idea, phone, n), emailOwner(idea, phone, n)]);
   }
 
   return json(event, 200, { ok: true });
