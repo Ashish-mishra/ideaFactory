@@ -7,6 +7,7 @@
  */
 export interface Idea {
   slug: string; // also used as the vote key: `gift-${slug}`
+  brand: 'createmygift' | 'boxtales'; // which brand would sell it
   name: string;
   tagline: string;
   description: string;
@@ -19,6 +20,7 @@ export interface Idea {
 export const ideas: Idea[] = [
   {
     slug: 'voice-bouquet-frame',
+    brand: 'boxtales',
     name: 'The Voice Bouquet Frame',
     tagline: 'A frame that holds many voices, each one a tap away.',
     description:
@@ -30,6 +32,7 @@ export const ideas: Idea[] = [
   },
   {
     slug: 'one-tap-bhajan-box',
+    brand: 'boxtales',
     name: 'The One-Tap Bhajan Box',
     tagline: 'A bhajan player for parents who find phones tiring.',
     description:
@@ -41,6 +44,7 @@ export const ideas: Idea[] = [
   },
   {
     slug: 'family-voice-story-cards',
+    brand: 'boxtales',
     name: 'Family Voice Story Cards',
     tagline: 'Dadi\'s stories, in Dadi\'s voice, for the grandchildren.',
     description:
@@ -52,6 +56,7 @@ export const ideas: Idea[] = [
   },
   {
     slug: 'birthday-time-capsule',
+    brand: 'createmygift',
     name: 'The Birthday Time Capsule',
     tagline: 'One voice note for every birthday, sealed until the day.',
     description:
@@ -63,6 +68,7 @@ export const ideas: Idea[] = [
   },
   {
     slug: 'open-when-voice-letters',
+    brand: 'boxtales',
     name: 'Open-When Voice Letters',
     tagline: '"Open when you miss me", but you can hear it.',
     description:
@@ -74,6 +80,7 @@ export const ideas: Idea[] = [
   },
   {
     slug: 'tap-to-play-rakhi',
+    brand: 'boxtales',
     name: 'The Tap-to-Play Rakhi',
     tagline: 'A rakhi that carries a message you can play back every year.',
     description:
@@ -85,6 +92,7 @@ export const ideas: Idea[] = [
   },
   {
     slug: 'heartbeat-keepsake-plaque',
+    brand: 'boxtales',
     name: 'The Heartbeat Keepsake Plaque',
     tagline: 'A newborn\'s heartbeat, kept where you can hear it.',
     description:
@@ -96,6 +104,7 @@ export const ideas: Idea[] = [
   },
   {
     slug: "vinyl-photo-magnet-speaker",
+    brand: 'boxtales',
     name: "The Spinning Vinyl Fridge Speaker",
     tagline: "A tiny record player for the fridge, with discs that each hold a song.",
     description: "A fridge-magnet speaker styled as a spinning vinyl record. Each swappable disc carries a song or a voice message, and placing one on the player starts it. Your own photo and message go on the discs.",
@@ -106,6 +115,7 @@ export const ideas: Idea[] = [
   },
   {
     slug: "anime-style-light-frame",
+    brand: 'createmygift',
     name: "The Illuminated Art Light Frame",
     tagline: "A glowing wall or desk frame with adjustable warm-to-cool light.",
     description: "A wooden frame with an acrylic panel and a built-in LED. The artwork lights up and the brightness and colour can be adjusted. We would draw original anime-style and pop-culture-inspired art, not licensed characters.",
@@ -116,6 +126,7 @@ export const ideas: Idea[] = [
   },
   {
     slug: "dual-name-illusion-plate",
+    brand: 'createmygift',
     name: "The Dual-Name Illusion Plate",
     tagline: "Two names, one plate. Each shows from a different angle.",
     description: "A small 3D-printed plate that reads one name from the left and another from the right. For couples it spells both names, or names and a date, and it sits on a desk or shelf.",
@@ -126,6 +137,7 @@ export const ideas: Idea[] = [
   },
   {
     slug: "levitating-display-piece",
+    brand: 'createmygift',
     name: "The Levitating Display Piece",
     tagline: "A small model that floats above its base.",
     description: "A desk piece in which a model, such as a car, a spaceship or a custom figure, floats above a base using magnets. It works as a conversation piece and a gift for people who like gadgets.",
@@ -136,6 +148,7 @@ export const ideas: Idea[] = [
   },
   {
     slug: "lithophane-photo-lamp",
+    brand: 'createmygift',
     name: "The Lithophane Photo Lamp",
     tagline: "A photo that appears when the light comes on.",
     description: "A photo is turned into a thin 3D-printed panel whose thickness varies, so the picture only becomes clear when the light shines through. Switched off, it looks like a plain white panel in a frame.",
@@ -146,6 +159,7 @@ export const ideas: Idea[] = [
   },
   {
     slug: "mini-retro-tv",
+    brand: 'boxtales',
     name: "The Mini Retro TV",
     tagline: "A tiny TV for your desk where every channel is yours.",
     description: "A miniature retro television with a small screen and a rotary knob. Turn the knob to change channels: a family-photo slideshow, a looping clip, a clock, a message from the giver or a pixel animation. It runs on a small microcontroller board and USB power.",
@@ -156,6 +170,7 @@ export const ideas: Idea[] = [
   },
   {
     slug: "pixel-art-desk-clock",
+    brand: 'boxtales',
     name: "The Pixel Art Desk Clock",
     tagline: "A glowing pixel display that shows the time, and your own pixel art.",
     description: "A small desk clock built around a grid of coloured LEDs. It shows the time and date, scrolls a message and plays simple pixel animations. We can load your own pixel art, such as a pet, a logo or a name.",
@@ -166,6 +181,7 @@ export const ideas: Idea[] = [
   },
   {
     slug: "mini-desk-weather-station",
+    brand: 'boxtales',
     name: "The Mini Desk Weather Station",
     tagline: "Temperature, humidity and forecast on a little screen.",
     description: "A compact desk station with a small display. It shows the room temperature and humidity from a built-in sensor, plus the local forecast, in a clean retro layout. A gift that is useful every morning.",
@@ -176,6 +192,7 @@ export const ideas: Idea[] = [
   },
   {
     slug: "led-pixel-sand-clock",
+    brand: 'boxtales',
     name: "The LED Pixel Sand Clock",
     tagline: "A digital hourglass where glowing pixels fall like sand.",
     description: "A small square of LEDs that behaves like an hourglass. Glowing \"grains\" pile up and fall as you tilt it, and the sand runs out over a set time such as 1, 5 or 25 minutes. Flip it to start again. It works as a desk timer and as a conversation piece.",

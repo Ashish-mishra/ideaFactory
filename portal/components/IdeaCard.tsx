@@ -92,6 +92,17 @@ export default function IdeaCard({ idea }: { idea: Idea }) {
       <span className="self-start mb-3 px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide bg-[#fff5f0] text-[#7a2e0e]">
         Concept · not on sale yet
       </span>
+      <p className="text-xs font-semibold text-[#5a5648] mb-2">
+        Would be sold by{' '}
+        <a
+          href={idea.brand === 'boxtales' ? 'https://boxtales.in' : 'https://createmygift.in'}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-[#1a1710]"
+        >
+          {idea.brand === 'boxtales' ? 'BoxTales' : 'CreateMyGift'}
+        </a>
+      </p>
       <h3 className="text-2xl font-extrabold text-[#1a1710] leading-tight mb-1">{idea.name}</h3>
       <p className="text-[#e8622a] font-semibold text-sm mb-4">{idea.tagline}</p>
       <p className="text-[#5a5648] leading-relaxed text-sm mb-4">{idea.description}</p>
