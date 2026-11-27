@@ -21,7 +21,7 @@ export const products: Product[] = [
     tagline: 'Your photo, your song — a keepsake that plays.',
     description:
       'A personalized magnetic keepsake with a built-in speaker that plays your chosen song. Add your photo, a heartfelt message, and a Spotify QR code so anyone can scan and stream the memory.',
-    image: '/images/musical-fridge-magnet.png',
+    image: '/images/musical-fridge-magnet.webp',
     price: '₹899',
     originalPrice: '₹1,199',
     categories: ['personalized', 'trending', 'under-1000'],

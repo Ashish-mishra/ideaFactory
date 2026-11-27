@@ -25,6 +25,10 @@ export default function SplitHero() {
             {/* Background image */}
             <img
               src={product.image}
+              width={640}
+              height={640}
+              loading="lazy"
+              decoding="async"
               alt={product.title}
               className="split-panel-img"
             />

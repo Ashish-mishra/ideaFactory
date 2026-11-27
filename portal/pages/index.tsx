@@ -7,10 +7,10 @@ import { products } from '@/data/products';
 import { ideas } from '@/data/ideas';
 import { occasionPages } from '@/lib/occasionPages';
 
-const TITLE = 'Unique Gift Ideas India — Available Now & Coming Next | UniqueIdeas.in';
+const TITLE = 'Unique Gift Ideas India — Available Now & Coming Next';
 const DESCRIPTION =
   'Unique gift ideas for every occasion: personalised keepsakes you can order today, plus new concepts we are building next. Vote for the ones you want.';
-const OG_IMAGE = 'https://uniqueideas.in/images/musical-fridge-magnet.png';
+const OG_IMAGE = 'https://uniqueideas.in/images/og-image.jpg';
 const CANONICAL = 'https://uniqueideas.in/';
 
 const schema = [
@@ -68,8 +68,6 @@ export default function HomePage() {
         <meta property="og:description" content={DESCRIPTION} />
         <meta property="og:site_name" content="UniqueIdeas.in" />
         <meta property="og:image" content={OG_IMAGE} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />

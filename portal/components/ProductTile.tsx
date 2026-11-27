@@ -19,9 +19,12 @@ export default function ProductTile({ product }: Props) {
       <div className="relative overflow-hidden bg-[#f5f3ee] h-64">
         <img
           src={product.image}
+          width={640}
+          height={640}
+          loading="lazy"
+          decoding="async"
           alt={product.title}
           className="product-image w-full h-full object-cover"
-          loading="lazy"
         />
 
         {/* Badge */}

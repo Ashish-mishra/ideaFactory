@@ -25,8 +25,8 @@ const allProducts = products;
 export const occasionPages: OccasionPage[] = [
   {
     slug: 'unique-gifts-for-birthday',
-    updated: '2026-11-25',
-    title: 'Unique Birthday Gift Ideas — Gifts They\'ll Never Forget | UniqueIdeas.in',
+    updated: '2026-11-27',
+    title: "Unique Birthday Gift Ideas India — Never Forgotten",
     h1: 'Unique Birthday Gift Ideas',
     description: "Unique birthday gift ideas in India: concepts for gifts that hold voices and memories, plus a practical guide to choosing well.",
     intro: 'Birthdays deserve something special — not another mug or scarf. Here are curated unique birthday gift ideas that actually surprise people.',
@@ -68,8 +68,8 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-gifts-for-kids',
-    updated: '2026-11-25',
-    title: 'Unique Gifts for Kids in India — Screen-Free & Educational | UniqueIdeas.in',
+    updated: '2026-11-27',
+    title: "Unique Gifts for Kids in India — Screen-Free Ideas",
     h1: 'Unique Gifts for Kids',
     description: "Unique gifts for kids in India: screen-free, story-led ideas and a guide to picking by age, plus concepts we are building.",
     intro: 'The best gifts for kids aren\'t toys they forget by Tuesday — they\'re experiences that spark imagination. Here are unique gift ideas your child will actually love.',
@@ -110,8 +110,8 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'personalized-gifts',
-    updated: '2026-11-25',
-    title: 'Personalized Gift Ideas India — Unique & Meaningful | UniqueIdeas.in',
+    updated: '2026-11-27',
+    title: "Personalized Gift Ideas India — Unique & Meaningful",
     h1: 'Personalized Gift Ideas',
     description: "Personalised gift ideas in India: what makes a gift feel personal, practical ordering tips and new concepts we are developing.",
     intro: 'Personalized gifts say "I thought about you" in a way nothing else can. Here are ideas that combine customisation with quality.',
@@ -153,10 +153,10 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-anniversary-gifts',
-    updated: '2026-11-25',
-    title: 'Unique Anniversary Gift Ideas India — Gifts That Mean More | UniqueIdeas.in',
+    updated: '2026-11-27',
+    title: "Unique Anniversary Gift Ideas India — Gifts That Mean More",
     h1: 'Unique Anniversary Gift Ideas',
-    description: "Unique anniversary gift ideas in India: guides by relationship stage and new concepts like sealed voice letters.",
+    description: "Unique anniversary gift ideas in India: guides by relationship stage and new concepts like sealed voice letters. Ideas for every year together.",
     intro: 'Anniversary gifts should feel like the relationship — personal, warm, and full of meaning. Skip the flowers. Here are unique anniversary gift ideas that last.',
     products: allProducts,
     guide: [
@@ -184,10 +184,10 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-gifts-for-him',
-    updated: '2026-11-25',
-    title: 'Unique Gifts for Him — Unusual Gift Ideas for Men India | UniqueIdeas.in',
+    updated: '2026-11-27',
+    title: "Unique Gifts for Him India — Unusual Ideas for Men",
     h1: 'Unique Gifts for Him',
-    description: "Unique gifts for him in India: how to choose for different personalities, plus concepts for voice-based keepsakes.",
+    description: "Unique gifts for him in India: how to choose for different personalities, plus concepts for voice-based keepsakes. Picks for every budget.",
     intro: 'Men are notoriously hard to shop for. These unique gift ideas for him go beyond the usual wallet-and-watch routine.',
     products: allProducts,
     guide: [
@@ -215,10 +215,10 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-gifts-for-her',
-    updated: '2026-11-25',
-    title: 'Unique Gifts for Her — Thoughtful Gift Ideas for Women India | UniqueIdeas.in',
+    updated: '2026-11-27',
+    title: "Unique Gifts for Her India — Thoughtful Ideas for Women",
     h1: 'Unique Gifts for Her',
-    description: "Unique gifts for her in India: thoughtful ideas by relationship and budget, and concepts that carry your voice.",
+    description: "Unique gifts for her in India: thoughtful ideas by relationship and budget, and concepts that carry your voice. Picks for every budget.",
     intro: 'The best gifts for her are the ones that feel like you really listened. Here are unique gift ideas for women that go beyond flowers and spa vouchers.',
     products: allProducts,
     guide: [
@@ -245,10 +245,10 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-gifts-under-500',
-    updated: '2026-11-25',
-    title: 'Unique Gifts Under ₹500 India — Thoughtful & Affordable | UniqueIdeas.in',
+    updated: '2026-11-27',
+    title: "Unique Gifts Under ₹500 India — Thoughtful Ideas",
     h1: 'Unique Gifts Under ₹500',
-    description: "Unique gifts under ₹500 in India: ideas and tips for making a small gift feel special.",
+    description: "Unique gifts under ₹500 in India: ideas and tips for making a small gift feel special. Gift-wrapping, personal notes and where to shop.",
     intro: 'Budget doesn\'t have to mean boring. These unique gift ideas under ₹500 punch well above their price tag.',
     products: allProducts.filter(p => p.categories.includes('under-1000')),
     guide: [
@@ -275,10 +275,10 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-gifts-for-wife',
-    updated: '2026-11-25',
-    title: 'Unique Gifts for Wife India — Surprise Her with Something Special | UniqueIdeas.in',
+    updated: '2026-11-27',
+    title: "Unique Gifts for Wife India — Something Special",
     h1: 'Unique Gifts for Wife',
-    description: "Unique gifts for wife in India: ideas that show attention, by occasion, plus voice-letter concepts.",
+    description: "Unique gifts for wife in India: ideas that show attention, by occasion, plus voice-letter concepts. Includes budget and splurge picks.",
     intro: 'The best gift for your wife isn\'t the most expensive one — it\'s the most personal. These unique gift ideas for wives are built around meaning, not price.',
     products: allProducts,
     guide: [
@@ -306,10 +306,10 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-gifts-for-girlfriend',
-    updated: '2026-11-25',
-    title: 'Unique Gifts for Girlfriend India — Gifts She\'ll Actually Love | UniqueIdeas.in',
+    updated: '2026-11-27',
+    title: "Unique Gifts for Girlfriend India — She'll Love",
     h1: 'Unique Gifts for Girlfriend',
-    description: "Unique gifts for girlfriend in India: ideas by relationship stage and concepts for long-distance couples.",
+    description: "Unique gifts for girlfriend in India: ideas by relationship stage and concepts for long-distance couples. Includes budget and splurge picks.",
     intro: 'Generic gifts send a generic message. These unique gift ideas for your girlfriend say "I actually paid attention."',
     products: allProducts.filter(p => p.categories.includes('personalized')),
     guide: [
@@ -336,10 +336,10 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-gifts-for-parents',
-    updated: '2026-11-25',
-    title: 'Unique Gifts for Parents India — Gifts They\'ll Treasure Forever | UniqueIdeas.in',
+    updated: '2026-11-27',
+    title: "Unique Gifts for Parents India — Treasured Forever",
     h1: 'Unique Gifts for Parents',
-    description: "Unique gifts for parents in India: ideas that show attention, plus concepts for simple, voice-based keepsakes.",
+    description: "Unique gifts for parents in India: ideas that show attention, plus concepts for simple, voice-based keepsakes. Easy to use and made to last.",
     intro: 'Parents have everything they need. What they don\'t have is more time. These unique gift ideas for parents capture moments they\'ll treasure.',
     products: allProducts,
     guide: [
@@ -368,10 +368,10 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-gifts-for-grandparents',
-    updated: '2026-11-25',
-    title: 'Unique Gifts for Grandparents India — Meaningful & Easy to Use | UniqueIdeas.in',
+    updated: '2026-11-27',
+    title: "Unique Gifts for Grandparents India — Easy to Use",
     h1: 'Unique Gifts for Grandparents',
-    description: "Unique gifts for grandparents in India: easy-to-use ideas and concepts that preserve their stories.",
+    description: "Unique gifts for grandparents in India: easy-to-use ideas and concepts that preserve their stories. Written with comfort and simplicity in mind.",
     intro: 'The best gifts for grandparents connect them to family. These unique gift ideas for grandparents close the distance, even when they\'re far away.',
     products: allProducts,
     guide: [
@@ -395,10 +395,10 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-diwali-gifts',
-    updated: '2026-11-25',
-    title: 'Unique Diwali Gift Ideas 2026 India — Beyond Dry Fruits & Sweets | UniqueIdeas.in',
+    updated: '2026-11-27',
+    title: "Unique Diwali Gift Ideas India — Beyond Sweets",
     h1: 'Unique Diwali Gift Ideas 2026',
-    description: "Unique Diwali gift ideas in India: ideas beyond sweets, and a planning guide for family, friends and colleagues.",
+    description: "Unique Diwali gift ideas in India: ideas beyond sweets, and a planning guide for family, friends and colleagues. Budgets included.",
     intro: 'Diwali deserves more than another dry fruit box. These unique Diwali gift ideas for 2026 will actually be remembered.',
     products: allProducts,
     guide: [
@@ -425,8 +425,8 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-rakhi-gifts',
-    updated: '2026-11-25',
-    title: 'Unique Rakhi Gift Ideas for Brother & Sister India 2026 | UniqueIdeas.in',
+    updated: '2026-11-27',
+    title: "Unique Rakhi Gift Ideas India — Brother & Sister",
     h1: 'Unique Rakhi Gift Ideas',
     description: "Unique Rakhi gift ideas in India: gifts that reference your shared history, and a concept for a rakhi that plays a message.",
     intro: 'Rakhi is about the bond, not the box. These unique Rakhi gift ideas let that bond do the talking.',
@@ -456,10 +456,10 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-wedding-gifts',
-    updated: '2026-11-25',
-    title: 'Unique Wedding Gift Ideas India — Gifts the Couple Will Keep | UniqueIdeas.in',
+    updated: '2026-11-27',
+    title: "Unique Wedding Gift Ideas India — Couples Keep",
     h1: 'Unique Wedding Gift Ideas',
-    description: "Unique wedding gift ideas in India: gifts couples keep, by budget, plus a concept that holds every guest's blessing.",
+    description: "Unique wedding gift ideas in India: gifts couples keep, by budget, plus a concept that holds every guest's blessing. Ideas for family, friends and colleagues.",
     intro: 'The couple will return three toasters. Give them something they\'ll keep. These unique wedding gift ideas are built to last.',
     products: allProducts,
     guide: [
@@ -486,10 +486,10 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-gifts-for-newborn-baby',
-    updated: '2026-11-25',
-    title: 'Unique Newborn Baby Gift Ideas India — Beyond Diapers & Onesies | UniqueIdeas.in',
+    updated: '2026-11-27',
+    title: "Unique Newborn Baby Gift Ideas India — Beyond Onesies",
     h1: 'Unique Gifts for Newborn Baby',
-    description: "Unique newborn baby gift ideas in India: gifts for the baby and the parents, plus keepsake concepts for the first year.",
+    description: "Unique newborn baby gift ideas in India: gifts for the baby and the parents, plus keepsake concepts for the first year. Practical picks and sentimental ones.",
     intro: 'Every new baby gets onesies and nappies. Give the family something that will matter when the child is old enough to remember it.',
     products: allProducts.filter(p => p.categories.includes('for-kids')),
     guide: [
@@ -513,10 +513,10 @@ export const occasionPages: OccasionPage[] = [
   },
   {
     slug: 'unique-gifts-for-teacher',
-    updated: '2026-11-25',
-    title: 'Unique Teacher Gift Ideas India — Gifts Teachers Actually Keep | UniqueIdeas.in',
+    updated: '2026-11-27',
+    title: "Unique Teacher Gift Ideas India — Ones They Keep",
     h1: 'Unique Gifts for Teacher',
-    description: "Unique teacher gift ideas in India: gifts teachers keep and a concept that gathers every student's voice.",
+    description: "Unique teacher gift ideas in India: gifts teachers keep and a concept that gathers every student's voice. Ideas for every budget and every school year.",
     intro: 'Teachers get enough pens and mugs. These unique gift ideas for teachers are the ones they\'ll actually talk about.',
     products: allProducts.filter(p => p.categories.includes('personalized')),
     guide: [

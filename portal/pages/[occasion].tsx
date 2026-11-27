@@ -6,7 +6,7 @@ import { ideasForOccasion } from '@/data/ideas';
 import { brandConfig } from '@/data/products';
 import IdeaCard from '@/components/IdeaCard';
 
-const OG_IMAGE = 'https://uniqueideas.in/images/musical-fridge-magnet.png';
+const OG_IMAGE = 'https://uniqueideas.in/images/og-image.jpg';
 
 interface Props {
   page: OccasionPage;
@@ -81,8 +81,6 @@ export default function OccasionRoute({ page }: Props) {
         <meta property="og:title" content={page.title} />
         <meta property="og:description" content={page.description} />
         <meta property="og:image" content={OG_IMAGE} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -172,6 +170,10 @@ export default function OccasionRoute({ page }: Props) {
                   <div className="sm:w-2/5 h-56 sm:h-auto overflow-hidden relative flex-shrink-0">
                     <img
                       src={product.image}
+                      width={640}
+                      height={640}
+                      loading="lazy"
+                      decoding="async"
                       alt={`${product.title} — unique gift idea`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />

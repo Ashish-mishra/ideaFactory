@@ -35,6 +35,10 @@ export default function ProductShowcase() {
               <div className="sm:w-2/5 h-56 sm:h-auto overflow-hidden relative flex-shrink-0">
                 <img
                   src={product.image}
+                  width={640}
+                  height={640}
+                  loading="lazy"
+                  decoding="async"
                   alt={product.title}
                   className="product-card-img w-full h-full object-cover"
                 />
